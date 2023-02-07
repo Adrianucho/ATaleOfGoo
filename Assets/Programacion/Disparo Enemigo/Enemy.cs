@@ -4,31 +4,34 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-   public GameObject Projectile;
+   public GameObject Projectile; // referencia del game object de la bala
 
-    float shootRate;
-    float shootagain;
+    public Transform firepoint; // donde va a disparar
+
+    float timebetween; // float del tiempo entre que dispara
+    public float starttimeb; //le dice que empiece el tiempo que tiene que disparar
+
+   
 
     void Start()
     {
-        shootRate = 3f;
-        shootagain = Time.time;
+        timebetween = starttimeb;
     }
 
     // Update is called once per frame
     void Update()
     {
-        lookiftimetoshoot();
-    }
-
-
-   public void lookiftimetoshoot()
-    {
-        if (Time.time > shootagain)
+       if (timebetween <= 0) //si el tiempo entre que dispara es 0 instancia una bala en x posición
         {
-            Instantiate(Projectile, transform.position, Quaternion.identity);
-            shootagain = Time.time + shootRate;
-
+            Instantiate(Projectile, firepoint.position, firepoint.rotation);
+            timebetween = starttimeb;
+        }
+       else 
+        {
+            timebetween -= Time.deltaTime;
         }
     }
+
+
+  
 }

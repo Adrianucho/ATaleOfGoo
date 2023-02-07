@@ -4,29 +4,30 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 5f; //variable de la velocidad de la bala
 
-    Rigidbody2D rb;
+    Rigidbody2D rb; //referencia del rigid body
 
-    Player target;
-
-    Vector2 moveDirection;
+   
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        target = GameObject.FindObjectOfType<Player>();
-        moveDirection = (target.transform.position - transform.position).normalized * speed;
-        rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
-        Destroy(gameObject, 3f);
+        rb = GetComponent<Rigidbody2D>(); //coge el componente del rigid body
+        rb.velocity = transform.right * speed; // le dice adonde tiene que ir
         
+
 
     }
 
-     void OnTriggerEnter2D(Collider2D col)
+     void OnTriggerEnter2D(Collider2D col) //si collisiona con el jugador se destruye
     {
-        if (col.gameObject.name.Equals("Player"))
+        if (col.gameObject.tag == "Player") 
         {
             Debug.Log("Le ha dado");
+            Destroy(gameObject);
+        }
+        if (col.gameObject.tag == "Floor") 
+        {
+            
             Destroy(gameObject);
         }
     }
