@@ -6,6 +6,8 @@ public class Attack : MonoBehaviour
 {
     public Transform firepoint; // referencia de adonde tiene que disparar 
     public GameObject goo;
+
+
     void Start()
     {
         

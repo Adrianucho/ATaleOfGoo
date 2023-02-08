@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     float timebetween; // float del tiempo entre que dispara
     public float starttimeb; //le dice que empiece el tiempo que tiene que disparar
 
-   
+    public int health = 100; // vida del enemigo
 
     void Start()
     {
@@ -32,6 +32,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void TakeDamage (int damage) //metodo que quita vida del enemigo
+    {
+        health -= damage;
+        if (health<=0) // si la salud llega a 0 muere
+        {
+            Die();
+        }
+    }
 
+
+    public void Die() //metodo para que se ejecute la muerte
+    {
+        Destroy(gameObject); // se destruye el enemigo
+    }
   
 }
