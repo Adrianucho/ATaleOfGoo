@@ -474,6 +474,7 @@ MonoBehaviour:
   Projectile: {fileID: 7890275674038830314, guid: 4e57b78fa2c53f248af97ed8ac742dc7, type: 3}
   firepoint: {fileID: 521789464}
   starttimeb: 2
+  health: 40
 --- !u!212 &1598219589
 SpriteRenderer:
   m_ObjectHideFlags: 0
