@@ -7,11 +7,37 @@ public class Player : MonoBehaviour
 
     public float speed;
     public float jump;
+    private float life = 2;
+
+    //Booleanas para activar y desactivar el parry y comprobar si ya está activo
+    private bool parryActivated = false;
+    private bool unableToParry = false;
+
+
+    //Booleana para activar el parry
+    public IEnumerator doAParry()
+    {
+        if (unableToParry == false)
+        {
+            Debug.Log("PARRY");
+            //Activamos el parry
+            unableToParry = true;
+            parryActivated = true;
+
+            //Esperamos X tiempo antes de desactivar el parry
+            yield return new WaitForSeconds(2F);
+            //Desactivamos el parry
+            parryActivated = false;
+            unableToParry = false;
+        }
+        
+
+    }
+
 
     private float move;
 
     public Rigidbody2D rb;
-
 
     const float groundCheckRadius = 0.2F;
 
@@ -40,6 +66,12 @@ public class Player : MonoBehaviour
 
         }
 
+        //Si pulsas el botón derecho del ratón, se hace un parry
+        if (Input.GetMouseButtonDown(1))
+        {
+            StartCoroutine(doAParry());
+        }
+
     }
 
     void GroundCheck()
@@ -52,6 +84,18 @@ public class Player : MonoBehaviour
             isGrounded = true;
 
         }
+    }
+
+    //Método que activa el parry
+    void parryAttack()
+    {
+
+    }
+
+    //Método que hacer perder vida al jugador
+    void loseLife()
+    {
+
     }
 
 }
