@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float speed;
     public float jump;
     private float life = 2;
+    private float playerShoots;
 
     //Booleanas para activar y desactivar el parry y comprobar si ya está activo
     private bool parryActivated = false;
@@ -72,6 +73,8 @@ public class Player : MonoBehaviour
             StartCoroutine(doAParry());
         }
 
+
+
     }
 
     void GroundCheck()
@@ -86,15 +89,27 @@ public class Player : MonoBehaviour
         }
     }
 
-    //Método que activa el parry
-    void parryAttack()
-    {
-
-    }
-
     //Método que hacer perder vida al jugador
-    void loseLife()
+    void checkDamageStatus()
     {
+        life = life - 1;
+
+        if(parryActivated == true)
+        {
+            if(playerShoots >= 3)
+            {
+                life = life - 1;
+            }
+            else
+            {
+                playerShoots = playerShoots + 1;
+            }
+        }
+        else
+        {
+            life = life - 1;
+        }
+
 
     }
 
