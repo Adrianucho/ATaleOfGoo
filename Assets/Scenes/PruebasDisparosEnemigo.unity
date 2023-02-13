@@ -405,6 +405,7 @@ MonoBehaviour:
   goo: {fileID: 5075409811542264068, guid: 698b6b716cb3ee84b88077340d6e9e01, type: 3}
   canFire: 1
   timeBetweenFiring: 0.3
+  PlayerFigure: {fileID: 1140140462}
 --- !u!1 &1140140462
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +421,7 @@ GameObject:
   - component: {fileID: 1140140467}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Floor
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -555,6 +556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jump: 1100
+  playerShoots: 3
   rb: {fileID: 1140140463}
   groundCheckCollider: {fileID: 1817381572}
   isGrounded: 0

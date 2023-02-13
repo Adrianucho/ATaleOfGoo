@@ -13,9 +13,22 @@ public class Attack : MonoBehaviour
     private float timer;
     public float timeBetweenFiring;
 
+    //Referencia al sript de Player
+    private Player PlayerScript;
+
+    public GameObject PlayerFigure;
+
+    private void Awake()
+    {
+        //Cogemos el script de Player de la figura del jugador
+        PlayerScript = PlayerFigure.GetComponent<Player>();
+
+    }
+
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
     }
 
     // Update is called once per frame
@@ -32,7 +45,17 @@ public class Attack : MonoBehaviour
 
       if (Input.GetButtonDown("Fire1")) //si pulsa el botón se ejecuta el disparo
         {
-            Shoot();
+
+
+            //Si tenemos munición, disparamos
+            if(PlayerScript.playerShoots > 0)
+            {
+
+                Shoot();
+
+            }
+
+
         }
 
        
@@ -41,6 +64,9 @@ public class Attack : MonoBehaviour
     void Shoot ()
     {
         Instantiate(goo, firepoint.position, firepoint.rotation); //instancia la bala en donde le pide
+
+        //Reducimos en uno la munición
+        PlayerScript.playerShoots = PlayerScript.playerShoots - 1;
     }
   
 }

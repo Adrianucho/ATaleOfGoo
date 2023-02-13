@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 5f; //variable de la velocidad de la bala
+    public float speed = 20f; //variable de la velocidad de la bala
 
     Rigidbody2D rb; //referencia del rigid body
 

@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public float speed;
     public float jump;
     private float life = 2;
-    private float playerShoots;
+    public float playerShoots;
 
     //Booleanas para activar y desactivar el parry y comprobar si ya está activo
     private bool parryActivated = false;
@@ -20,15 +20,18 @@ public class Player : MonoBehaviour
     {
         if (unableToParry == false)
         {
-            Debug.Log("PARRY");
             //Activamos el parry
             unableToParry = true;
             parryActivated = true;
 
-            //Esperamos X tiempo antes de desactivar el parry
-            yield return new WaitForSeconds(2F);
-            //Desactivamos el parry
+            //Desactivamos el efecto del parry
+            yield return new WaitForSeconds(0.5f);
             parryActivated = false;
+
+            //Esperamos X tiempo antes de poder volver a activar el parry
+            yield return new WaitForSeconds(2F);
+
+            //Volvemos a ser capaces de usar el parry
             unableToParry = false;
         }
         
@@ -55,7 +58,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(playerShoots);
         GroundCheck();
         move = Input.GetAxis("Horizontal");
 
@@ -72,7 +75,6 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(doAParry());
         }
-
 
 
     }
