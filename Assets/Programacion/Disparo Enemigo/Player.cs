@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
     }
 
     //Método que hacer perder vida al jugador
-    void checkDamageStatus()
+    public void checkDamageStatus()
     {
         life = life - 1;
 

@@ -8,13 +8,21 @@ public class Projectile : MonoBehaviour
 
     Rigidbody2D rb; //referencia del rigid body
 
-   
+    public GameObject PlayerPlayableFigure;
+    private Player playerScriptReference;
+
+    private void Awake()
+    {
+        
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); //coge el componente del rigid body
         rb.velocity = transform.right * speed; // le dice adonde tiene que ir
-        
 
+        PlayerPlayableFigure = GameObject.FindGameObjectWithTag("Player");
+        playerScriptReference = PlayerPlayableFigure.GetComponent<Player>();
 
     }
 
@@ -22,6 +30,10 @@ public class Projectile : MonoBehaviour
     {
         if (col.gameObject.tag == "Player") 
         {
+
+            //El juego comprueba si hacer daño o no
+            playerScriptReference.checkDamageStatus();
+
             Debug.Log("Le ha dado");
             Destroy(gameObject);
         }
