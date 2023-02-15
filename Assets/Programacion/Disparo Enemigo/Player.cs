@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class Player : MonoBehaviour
     private bool parryActivated = false;
     private bool unableToParry = false;
 
+    //Posición inicial del jugador
+    private Vector2 startPosition;
+
+ 
 
     //Booleana para activar el parry
     public IEnumerator doAParry()
@@ -52,7 +57,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        //Capturamos la posición inicial del jugador para así poder llamarlo de vuelta cuando muera
+        startPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -109,7 +116,22 @@ public class Player : MonoBehaviour
         }
         else
         {
-            life = life - 1;
+
+            if(life > 0)
+            {
+                life = life - 1;
+            }
+            else
+            {
+
+                //Devolvemos al jugador al origen del nivel y quitamos su velocidad
+                transform.position = startPosition;
+                rb.velocity = Vector2.zero;
+
+                //Devolvemos la vida al jugador
+                life = 2;
+            }
+            
         }
 
 
