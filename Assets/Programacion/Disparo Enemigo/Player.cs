@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
             parryActivated = false;
 
             //Esperamos X tiempo antes de poder volver a activar el parry
-            yield return new WaitForSeconds(2F);
+            yield return new WaitForSeconds(1F);
 
             //Volvemos a ser capaces de usar el parry
             unableToParry = false;
