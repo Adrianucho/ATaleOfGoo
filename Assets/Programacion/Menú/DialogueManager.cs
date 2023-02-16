@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
    
     public Text nameText;
     public Text dialogueText;
-
+    public Animator animator;
     
     private Queue <string> sentences; //array de las frases
 
@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue)
     {
-
+        animator.SetBool("Isopen", true);
         nameText.text = dialogue.name;
 
         sentences.Clear(); // limpia las frases en el array
@@ -45,12 +45,24 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+        //dialoqueText.text = sentence
+    }
+
+    IEnumerator TypeSentence (string sentence) //esto srive para que en el dialogue box vayan apareciendo letras poco a poco
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;
+        }
     }
 
     void EndDialogue()
     {
-        Debug.Log("Final de la conversación");
+        animator.SetBool("Isopen", false);
     }
 
 }
