@@ -12,24 +12,45 @@ public class Enemy : MonoBehaviour
     public float starttimeb; //le dice que empiece el tiempo que tiene que disparar
 
     public int health = 100; // vida del enemigo
+    private BoxCollider2D bCol2d;
 
     void Start()
     {
-        timebetween = starttimeb;
+        // timebetween = starttimeb;
+        bCol2d = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (timebetween <= 0) //si el tiempo entre que dispara es 0 instancia una bala en x posición
+        //Length of the ray
+        float laserLength = 5f;
+        //Start point of the laser
+        Vector2 startPosition = (Vector2)transform.position - new Vector2(0, (bCol2d.bounds.extents.y + 0.05f));
+        int layerMask = LayerMask.GetMask("Default");
+        //Check if the laser hit something
+        RaycastHit2D hit = Physics2D.Raycast(startPosition, Vector2.left, laserLength, layerMask);
+
+       
+      if (hit.collider.tag == "Player" )
         {
-            Instantiate(Projectile, firepoint.position, firepoint.rotation);
-            timebetween = starttimeb;
+            Debug.Log("AAAA");
+            if (timebetween <= 0) //si el tiempo entre que dispara es 0 instancia una bala en x posición
+            {
+                Instantiate(Projectile, firepoint.position, firepoint.rotation);
+                timebetween = starttimeb;
+                Debug.Log("Instanciando");
+            }
+            else
+            {
+                timebetween -= Time.deltaTime;
+            }
+            Debug.DrawRay(startPosition, Vector2.left * laserLength, Color.red);
         }
-       else 
-        {
-            timebetween -= Time.deltaTime;
-        }
+
+        
+
+
     }
 
     public void TakeDamage (int damage) //metodo que quita vida del enemigo
