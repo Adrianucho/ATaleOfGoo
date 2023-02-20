@@ -18,7 +18,8 @@ public class Player : MonoBehaviour
     //Posición inicial del jugador
     private Vector2 startPosition;
 
- 
+    private Enemy enemyScriptReference;
+    public GameObject enemyModel;
 
     //Booleana para activar el parry
     public IEnumerator doAParry()
@@ -60,6 +61,8 @@ public class Player : MonoBehaviour
 
         //Capturamos la posición inicial del jugador para así poder llamarlo de vuelta cuando muera
         startPosition = transform.position;
+
+        enemyScriptReference = enemyModel.GetComponent<Enemy>();
     }
 
     // Update is called once per frame
@@ -127,6 +130,7 @@ public class Player : MonoBehaviour
                 //Devolvemos al jugador al origen del nivel y quitamos su velocidad
                 transform.position = startPosition;
                 rb.velocity = Vector2.zero;
+                enemyScriptReference.timebetween = enemyScriptReference.starttimeb;
 
                 //Devolvemos la vida al jugador
                 life = 2;

@@ -8,15 +8,27 @@ public class Enemy : MonoBehaviour
 
     public Transform firepoint; // donde va a disparar
 
-    float timebetween; // float del tiempo entre que dispara
+    public float timebetween; // float del tiempo entre que dispara
     public float starttimeb; //le dice que empiece el tiempo que tiene que disparar
 
     public int health = 100; // vida del enemigo
     private BoxCollider2D bCol2d;
 
+    private bool ableToShoot = true;
+
+    IEnumerator enemyShoots()
+    {
+        ableToShoot = false;
+        Instantiate(Projectile, firepoint.position, firepoint.rotation);
+        yield return new WaitForSeconds(1);
+        ableToShoot = true;
+
+    }
+
+
     void Start()
     {
-        // timebetween = starttimeb;
+        //
         bCol2d = GetComponent<BoxCollider2D>();
     }
 
@@ -34,7 +46,12 @@ public class Enemy : MonoBehaviour
        
       if (hit.collider.tag == "Player" )
         {
-            Debug.Log("AAAA");
+            if(ableToShoot == true)
+            {
+                StartCoroutine(enemyShoots());
+            }
+
+           /* Debug.Log("AAAA");
             if (timebetween <= 0) //si el tiempo entre que dispara es 0 instancia una bala en x posición
             {
                 Instantiate(Projectile, firepoint.position, firepoint.rotation);
@@ -46,6 +63,7 @@ public class Enemy : MonoBehaviour
                 timebetween -= Time.deltaTime;
             }
             Debug.DrawRay(startPosition, Vector2.left * laserLength, Color.red);
+           */
         }
 
         

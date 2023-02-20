@@ -641,6 +641,7 @@ MonoBehaviour:
   speed: 5
   jump: 1100
   playerShoots: 3
+  enemyModel: {fileID: 1598219587}
   rb: {fileID: 1140140463}
   groundCheckCollider: {fileID: 1817381572}
   isGrounded: 0
