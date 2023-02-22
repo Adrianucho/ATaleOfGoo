@@ -21,6 +21,10 @@ public class Player : MonoBehaviour
     private Enemy enemyScriptReference;
     public GameObject enemyModel;
 
+    private bool walking = false;
+
+    public Animator playerAnimator;
+
     //Booleana para activar el parry
     public IEnumerator doAParry()
     {
@@ -29,6 +33,8 @@ public class Player : MonoBehaviour
             //Activamos el parry
             unableToParry = true;
             parryActivated = true;
+
+            playerAnimator.SetTrigger("heHechoParry");
 
             //Desactivamos el efecto del parry
             yield return new WaitForSeconds(0.5f);
@@ -72,11 +78,39 @@ public class Player : MonoBehaviour
         GroundCheck();
         move = Input.GetAxis("Horizontal");
 
+        //Si estamos no estamos pulsando el botón de andado, entonces estamos quietos
+        if(Input.GetAxis("Horizontal") == 0)
+        {
+            playerAnimator.SetBool("caminando", false);
+        }
+        else
+        {
+            playerAnimator.SetBool("caminando", true);
+        }
+
+        //Si no estamos tocando el suelo, estamos en el aire
+        if(isGrounded == false)
+        {
+            playerAnimator.SetBool("flotando", true);
+
+        }
+        else
+        {
+            playerAnimator.SetBool("flotando", false);
+
+        }
+
+
+        Debug.Log(walking);
+
         rb.velocity = new Vector2(speed * move, rb.velocity.y);
 
         if (Input.GetButtonDown("Jump") && isGrounded == true)
         {
             rb.AddForce(new Vector2(rb.velocity.x, jump));
+
+            
+
 
         }
 

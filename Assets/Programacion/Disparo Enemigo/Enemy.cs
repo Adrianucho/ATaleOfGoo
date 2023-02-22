@@ -51,19 +51,6 @@ public class Enemy : MonoBehaviour
                 StartCoroutine(enemyShoots());
             }
 
-           /* Debug.Log("AAAA");
-            if (timebetween <= 0) //si el tiempo entre que dispara es 0 instancia una bala en x posición
-            {
-                Instantiate(Projectile, firepoint.position, firepoint.rotation);
-                timebetween = starttimeb;
-                Debug.Log("Instanciando");
-            }
-            else
-            {
-                timebetween -= Time.deltaTime;
-            }
-            Debug.DrawRay(startPosition, Vector2.left * laserLength, Color.red);
-           */
         }
 
         
