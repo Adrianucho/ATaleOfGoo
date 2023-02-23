@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
     public Animator playerAnimator;
 
+    public GameObject Test;
+
     //Booleana para activar el parry
     public IEnumerator doAParry()
     {
@@ -34,14 +36,19 @@ public class Player : MonoBehaviour
             unableToParry = true;
             parryActivated = true;
 
+            Test.SetActive(true);
+
+
             playerAnimator.SetTrigger("heHechoParry");
 
             //Desactivamos el efecto del parry
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
             parryActivated = false;
+            Test.SetActive(false);
+
 
             //Esperamos X tiempo antes de poder volver a activar el parry
-            yield return new WaitForSeconds(1F);
+            yield return new WaitForSeconds(0.25F);
 
             //Volvemos a ser capaces de usar el parry
             unableToParry = false;
