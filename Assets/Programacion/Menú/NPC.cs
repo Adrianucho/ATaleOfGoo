@@ -13,7 +13,7 @@ public class NPC : MonoBehaviour
     public GameObject contButton;
     public float wordSpeed;
     public bool playerIsClose;
-
+    public Animator menu;
 
     private void Update()
     {
@@ -25,7 +25,7 @@ public class NPC : MonoBehaviour
             }
             else
             {
-                dialoguePanel.SetActive(true);
+               dialoguePanel.SetActive(true);
                 StartCoroutine(Typing());
             }
         }
@@ -39,7 +39,7 @@ public class NPC : MonoBehaviour
     {
         dialogueText.text = "";
         index = 0;
-        dialoguePanel.SetActive(false);
+      dialoguePanel.SetActive(false);
     }
     IEnumerator Typing ()
     {
@@ -70,7 +70,9 @@ public class NPC : MonoBehaviour
     {
         if (collision.CompareTag("Goo"))
         {
+            Debug.Log("Peloso");
             playerIsClose = true;
+            menu.SetTrigger("IsOpen");
         }
     }
 
