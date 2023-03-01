@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
 
-   
+  
     public Text nameText;
     public Text dialogueText;
-    public Animator animator;
-    
+    public Animator menu;
+
     private Queue <string> sentences; //array de las frases
 
     void Start()
@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue)
     {
-        animator.SetBool("Isopen", true);
+      
         nameText.text = dialogue.name;
 
         sentences.Clear(); // limpia las frases en el array
@@ -40,6 +40,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (sentences.Count == 0 )
         {
+         
             EndDialogue(); //termina el dialogo
             return;
         }
@@ -47,7 +48,7 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
-        //dialoqueText.text = sentence
+        
     }
 
     IEnumerator TypeSentence (string sentence) //esto srive para que en el dialogue box vayan apareciendo letras poco a poco
@@ -62,7 +63,8 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        animator.SetBool("Isopen", false);
+        Debug.Log("Se termino");
+        menu.SetTrigger("IsClose");
     }
 
 }

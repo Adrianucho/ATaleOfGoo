@@ -5,22 +5,21 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour //script que triggea la conversación
 {
     public Dialogue dialogue;
+    public Animator menu;
 
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
     }
 
-    void OnTriggerEnter2D(Collider2D col) //si collisiona con el jugador se destruye
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (col.gameObject.tag == "Goo")
+        if (collision.CompareTag("Goo"))
         {
-            Debug.Log("Le ha dado");
-            //El juego comprueba si hacer daño o no
+            Debug.Log("Peloso");
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
-
-         
-
+            menu.SetTrigger("IsOpen");
         }
     }
 }
