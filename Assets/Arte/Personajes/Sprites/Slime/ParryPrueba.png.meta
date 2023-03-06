@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 24bc8aedc053b54468528a62fca95ffd
+guid: 7bbe4ed936802a44e83b179f8e1051c2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Parry_0
+      name: ParryPrueba_0
       rect:
         serializedVersion: 2
         x: 0
@@ -133,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af82f2516f4deae42afb368199cb1a50
-      internalID: 952127047
+      spriteID: 25205a385438faf45b6df83a8c5041a5
+      internalID: 952300886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parry_1
+      name: ParryPrueba_1
       rect:
         serializedVersion: 2
         x: 0
@@ -154,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80a053a788fd13f4ba2d261703e799cc
-      internalID: 1600004863
+      spriteID: 532f67fb16b46f949a6813ba64d41557
+      internalID: -1043741021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parry_2
+      name: ParryPrueba_2
       rect:
         serializedVersion: 2
         x: 0
@@ -175,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2666daa747e723b4eb58b3863c38f19b
-      internalID: -1926948053
+      spriteID: ffe5cd162110b1e41a20aa578d9d05e9
+      internalID: 2137082244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parry_3
+      name: ParryPrueba_3
       rect:
         serializedVersion: 2
         x: 0
@@ -196,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e1dadcb94e12c8449b479706ac3f708
-      internalID: 1752027947
+      spriteID: 85b7259e19b99eb42b46d3e43e787168
+      internalID: 1064412376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parry_4
+      name: ParryPrueba_4
       rect:
         serializedVersion: 2
         x: 0
@@ -217,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eae1fcda340fa4c47909422102f46bb2
-      internalID: -677446930
+      spriteID: e37d91e22afc30c48ab69cb630af6825
+      internalID: 1567219823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Parry_5
+      name: ParryPrueba_5
       rect:
         serializedVersion: 2
         x: 0
@@ -238,8 +238,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5d106885abfd004a8f6f28efabca90f
-      internalID: 1485139426
+      spriteID: 5a713b3268f3c704b89ee877e59dd713
+      internalID: -1067739602
       vertices: []
       indices: 
       edges: []
@@ -255,12 +255,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Parry_5: 1485139426
-      Parry_4: -677446930
-      Parry_2: -1926948053
-      Parry_0: 952127047
-      Parry_3: 1752027947
-      Parry_1: 1600004863
+      ParryPrueba_2: 2137082244
+      ParryPrueba_5: -1067739602
+      ParryPrueba_3: 1064412376
+      ParryPrueba_0: 952300886
+      ParryPrueba_4: 1567219823
+      ParryPrueba_1: -1043741021
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

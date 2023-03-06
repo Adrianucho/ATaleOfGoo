@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Player : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class Player : MonoBehaviour
     public Animator playerAnimator;
 
     public GameObject Test;
+
+
+    private Vector3 previousPosition;
+    
+
 
     //Booleana para activar el parry
     public IEnumerator doAParry()
@@ -76,12 +82,14 @@ public class Player : MonoBehaviour
         startPosition = transform.position;
 
         enemyScriptReference = enemyModel.GetComponent<Enemy>();
+
+        previousPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(playerShoots);
+
         GroundCheck();
         move = Input.GetAxis("Horizontal");
 
@@ -108,7 +116,7 @@ public class Player : MonoBehaviour
         }
 
 
-        Debug.Log(walking);
+        
 
         rb.velocity = new Vector2(speed * move, rb.velocity.y);
 
@@ -127,6 +135,28 @@ public class Player : MonoBehaviour
             StartCoroutine(doAParry());
         }
 
+        if (Input.GetKey(KeyCode.A) || transform.position != previousPosition)
+        {
+
+
+
+        }
+
+        
+        // Comprobamos la dirección de las pulsaciones
+        float inputAxis = Input.GetAxisRaw("Horizontal");
+
+        // Según la última tecla pulsada, activamos el flip o no
+        if (inputAxis > 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+
+        }
+        else if (inputAxis < 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+
+        }
 
     }
 
@@ -176,10 +206,9 @@ public class Player : MonoBehaviour
                 //Devolvemos la vida al jugador
                 life = 2;
             }
-            
         }
-
-
     }
+
+   
 
 }
