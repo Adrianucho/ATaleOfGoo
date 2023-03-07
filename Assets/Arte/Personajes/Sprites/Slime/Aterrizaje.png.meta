@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7e3705519436c3f47a17d052285df1de
+guid: d9520b025858e1741b955087f74a43e8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -119,133 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Salto_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2310
-        width: 330
-        height: 330
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21b0d8b3aca6c8948b5fbec8ee9eb360
-      internalID: -1003147050
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salto_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1980
-        width: 330
-        height: 330
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fdb2fc17a18cef546a1d4656d011a729
-      internalID: -900720006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salto_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1650
-        width: 330
-        height: 330
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 167b34ae4f339084da072b8ca2d61162
-      internalID: 578834402
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salto_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1320
-        width: 330
-        height: 330
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3dc81540a76ed694fb80de915e001b54
-      internalID: 1045052219
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salto_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 990
-        width: 330
-        height: 330
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec79c090fb3324942a45689dc98d0b79
-      internalID: 1393799991
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salto_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 660
-        width: 330
-        height: 330
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 220405a87fdc3e141af66c89a2d763ea
-      internalID: -1152176126
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Salto_6
+      name: Aterrizaje_0
       rect:
         serializedVersion: 2
         x: 0
@@ -259,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d8569fabc2ed954abd3b6d648c30353
-      internalID: 1607478767
+      spriteID: 4de28fb7dcb08744f9c3fb28fdc635b1
+      internalID: -578407747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Salto_7
+      name: Aterrizaje_1
       rect:
         serializedVersion: 2
         x: 0
@@ -280,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58e7ed0fd759dcd4a950c6a0d670dea9
-      internalID: 1406151923
+      spriteID: 8c54ff6c1d31c474cb5ca0088f213c6f
+      internalID: 169211581
       vertices: []
       indices: 
       edges: []
@@ -297,14 +171,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Salto_1: -900720006
-      Salto_6: 1607478767
-      Salto_2: 578834402
-      Salto_7: 1406151923
-      Salto_4: 1393799991
-      Salto_0: -1003147050
-      Salto_3: 1045052219
-      Salto_5: -1152176126
+      Aterrizaje_0: -578407747
+      Aterrizaje_1: 169211581
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

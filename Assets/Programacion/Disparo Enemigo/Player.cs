@@ -42,6 +42,8 @@ public class Player : MonoBehaviour
             unableToParry = true;
             parryActivated = true;
 
+
+            playerAnimator.SetBool("finParry", false);
             Test.SetActive(true);
 
 
@@ -50,6 +52,8 @@ public class Player : MonoBehaviour
             //Desactivamos el efecto del parry
             yield return new WaitForSeconds(0.2f);
             parryActivated = false;
+            playerAnimator.SetBool("finParry", true);
+
             Test.SetActive(false);
 
 
@@ -123,6 +127,9 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded == true)
         {
             rb.AddForce(new Vector2(rb.velocity.x, jump));
+
+            //Indicamos al animator que hemos saltado
+            playerAnimator.SetTrigger("heSaltado");
 
             
 
