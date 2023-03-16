@@ -15,13 +15,16 @@ public class Enemy : MonoBehaviour
     private BoxCollider2D bCol2d;
 
     private bool ableToShoot = true;
-
+    public GameObject particleshoot;
+    public int FramesToFlash = 1;
     IEnumerator enemyShoots()
     {
         ableToShoot = false;
+        particleshoot.SetActive(true);
         Instantiate(Projectile, firepoint.position, firepoint.rotation);
         yield return new WaitForSeconds(1);
         ableToShoot = true;
+        particleshoot.SetActive(false);
 
     }
 
@@ -49,7 +52,9 @@ public class Enemy : MonoBehaviour
             if(ableToShoot == true)
             {
                 StartCoroutine(enemyShoots());
+                StartCoroutine(DoFlash());
             }
+            
 
         }
 
@@ -67,7 +72,21 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    IEnumerator DoFlash()
+    {
+        particleshoot.SetActive(true);
+        var framesFlashed = 0;
+        
+        while (framesFlashed <= FramesToFlash)
+        {
+            
 
+            yield return null;
+        }
+        particleshoot.SetActive(false);
+        
+
+    }
     public void Die() //metodo para que se ejecute la muerte
     {
         Destroy(gameObject); // se destruye el enemigo
