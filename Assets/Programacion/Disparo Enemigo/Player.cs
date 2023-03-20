@@ -19,17 +19,20 @@ public class Player : MonoBehaviour
     //Posición inicial del jugador
     private Vector2 startPosition;
 
+    //Referencias al script del enemigo y a su modelo de juego
     private Enemy enemyScriptReference;
     public GameObject enemyModel;
 
+
+    //Booleana que detecta si el jugador está andando o no
     private bool walking = false;
 
     public Animator playerAnimator;
 
     public GameObject Test;
 
-
-    private Vector3 previousPosition;
+    //Referencia a la estela que deja el jugador
+    public GameObject playerTrail;
     
 
 
@@ -87,7 +90,7 @@ public class Player : MonoBehaviour
 
         enemyScriptReference = enemyModel.GetComponent<Enemy>();
 
-        previousPosition = transform.position;
+        
     }
 
     // Update is called once per frame
@@ -140,13 +143,6 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             StartCoroutine(doAParry());
-        }
-
-        if (Input.GetKey(KeyCode.A) || transform.position != previousPosition)
-        {
-
-
-
         }
 
         
@@ -205,11 +201,16 @@ public class Player : MonoBehaviour
             else
             {
 
+                //Desactivamos la estela del jugador
+                playerTrail.GetComponent<TrailRenderer>().enabled = false;
+
                 //Devolvemos al jugador al origen del nivel y quitamos su velocidad
                 transform.position = startPosition;
                 rb.velocity = Vector2.zero;
                 enemyScriptReference.timebetween = enemyScriptReference.starttimeb;
 
+                //Desactivamos la estela del jugador
+                playerTrail.GetComponent<TrailRenderer>().enabled = true;
                 //Devolvemos la vida al jugador
                 life = 2;
             }
