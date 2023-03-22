@@ -43,7 +43,7 @@ public class Attack : MonoBehaviour
 
 
 
-      if (Input.GetButtonDown("Fire1")) //si pulsa el botón se ejecuta el disparo
+      if (Input.GetButtonDown("Fire1") && PlayerScript.disabledControls == false) //si pulsa el botón se ejecuta el disparo
         {
 
 

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
+using UnityEngine.VFX;
 
 public class Player : MonoBehaviour
 {
 
     public float speed;
     public float jump;
-    private float life = 2;
+    private float life = 1;
     public float playerShoots;
 
     //Booleanas para activar y desactivar el parry y comprobar si ya está activo
@@ -27,14 +28,25 @@ public class Player : MonoBehaviour
     //Booleana que detecta si el jugador está andando o no
     private bool walking = false;
 
+    //Animators del player y de la pantalla de Transición
     public Animator playerAnimator;
+    public Animator transitionAnimator;
 
     public GameObject Test;
 
     //Referencia a la estela que deja el jugador
     public GameObject playerTrail;
-    
 
+    //referencia a los eefectos de particulas para el parry
+    public VisualEffect projectilAbsortionRed;
+    public VisualEffect projectilAbsortionGrey;
+
+    //referencia al propio jugador y al cursor de apuntado
+    public GameObject player;
+    public GameObject firePointCursor;
+    public GameObject informationBoxCollisionObject;
+
+    public bool disabledControls = false;
 
     //Booleana para activar el parry
     public IEnumerator doAParry()
@@ -67,6 +79,55 @@ public class Player : MonoBehaviour
             unableToParry = false;
         }
         
+
+    }
+
+    public IEnumerator respawn()
+    {
+        life = 1;
+        disabledControls = true;
+
+        //Desactivamos la estela del jugador, su imagen y el cursor de apuntado
+        playerTrail.GetComponent<TrailRenderer>().enabled = false;
+        player.GetComponent<SpriteRenderer>().enabled = false;
+        firePointCursor.GetComponent<SpriteRenderer>().enabled = false;
+        player.GetComponent<BoxCollider2D>().enabled = false;
+
+        //Desactivamos la colisión de la caja de información temporalmente para evitar animaciones inoportunas
+        informationBoxCollisionObject.GetComponent<BoxCollider2D>().enabled = false;
+
+        yield return new WaitForSeconds(1);
+
+        //Activamos la Animación de transición tras morir
+        transitionAnimator.SetBool("transicionActivada", true);
+        transitionAnimator.SetTrigger("transicionCheck");
+
+        yield return new WaitForSeconds(0.1f);
+
+        //Poco después desactivamos la transición para evitar bucles
+        transitionAnimator.SetBool("transicionActivada", false);
+
+        yield return new WaitForSeconds(0.30f);
+
+        //Devolvemos al jugador al origen del nivel y quitamos su velocidad
+        transform.position = startPosition;
+        rb.velocity = Vector2.zero;
+        enemyScriptReference.timebetween = enemyScriptReference.starttimeb;
+
+
+        //Reactivamos la imágenes
+        playerTrail.GetComponent<TrailRenderer>().enabled = true;
+        player.GetComponent<SpriteRenderer>().enabled = true;
+        firePointCursor.GetComponent <SpriteRenderer>().enabled = true;
+        player.GetComponent<BoxCollider2D>().enabled = true;
+        informationBoxCollisionObject.GetComponent<BoxCollider2D>().enabled = true;
+
+        //Devolvemos la vida al jugador
+        disabledControls = false;
+        yield return null;
+
+
+
 
     }
 
@@ -124,10 +185,15 @@ public class Player : MonoBehaviour
 
 
         
+        if(disabledControls == false)
+        {
 
-        rb.velocity = new Vector2(speed * move, rb.velocity.y);
+            rb.velocity = new Vector2(speed * move, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump") && isGrounded == true)
+
+        }
+
+        if (Input.GetButtonDown("Jump") && isGrounded == true && disabledControls == false)
         {
             rb.AddForce(new Vector2(rb.velocity.x, jump));
 
@@ -140,7 +206,7 @@ public class Player : MonoBehaviour
         }
 
         //Si pulsas el botón derecho del ratón, se hace un parry
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && disabledControls == false)
         {
             StartCoroutine(doAParry());
         }
@@ -150,12 +216,12 @@ public class Player : MonoBehaviour
         float inputAxis = Input.GetAxisRaw("Horizontal");
 
         // Según la última tecla pulsada, activamos el flip o no
-        if (inputAxis > 0)
+        if (inputAxis > 0 && disabledControls == false)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
 
         }
-        else if (inputAxis < 0)
+        else if (inputAxis < 0 && disabledControls == false)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
 
@@ -178,17 +244,17 @@ public class Player : MonoBehaviour
     //Método que hacer perder vida al jugador
     public void checkDamageStatus()
     {
-        life = life - 1;
 
         if(parryActivated == true)
         {
             if(playerShoots >= 3)
             {
-                life = life - 1;
+                projectilAbsortionGrey.Play();
             }
             else
             {
                 playerShoots = playerShoots + 1;
+                projectilAbsortionRed.Play();
             }
         }
         else
@@ -201,18 +267,8 @@ public class Player : MonoBehaviour
             else
             {
 
-                //Desactivamos la estela del jugador
-                playerTrail.GetComponent<TrailRenderer>().enabled = false;
-
-                //Devolvemos al jugador al origen del nivel y quitamos su velocidad
-                transform.position = startPosition;
-                rb.velocity = Vector2.zero;
-                enemyScriptReference.timebetween = enemyScriptReference.starttimeb;
-
-                //Desactivamos la estela del jugador
-                playerTrail.GetComponent<TrailRenderer>().enabled = true;
-                //Devolvemos la vida al jugador
-                life = 2;
+                StartCoroutine(respawn());
+               
             }
         }
     }
