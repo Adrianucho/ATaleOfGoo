@@ -41,6 +41,9 @@ public class Player : MonoBehaviour
     public VisualEffect projectilAbsortionRed;
     public VisualEffect projectilAbsortionGrey;
 
+    //referencia a el efecto de la muerte del personaje
+    public VisualEffect muerteParticles;
+
     //referencia al propio jugador y al cursor de apuntado
     public GameObject player;
     public GameObject firePointCursor;
@@ -263,11 +266,13 @@ public class Player : MonoBehaviour
             if(life > 0)
             {
                 life = life - 1;
+               
             }
             else
             {
-
+                muerteParticles.Play();
                 StartCoroutine(respawn());
+                
                
             }
         }

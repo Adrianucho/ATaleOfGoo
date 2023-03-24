@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Enemy : MonoBehaviour
 {
@@ -17,8 +18,12 @@ public class Enemy : MonoBehaviour
     private bool ableToShoot = true;
     public GameObject particleshoot;
     public int FramesToFlash = 1;
+    //referencia a el efecto ddel aviso disparo
+    public VisualEffect avisoDisparo;
     IEnumerator enemyShoots()
     {
+        StartCoroutine(Flash());
+       
         ableToShoot = false;
         particleshoot.SetActive(true);
         Instantiate(Projectile, firepoint.position, firepoint.rotation);
@@ -49,8 +54,10 @@ public class Enemy : MonoBehaviour
        
       if (hit.collider.tag == "Player" )
         {
-            if(ableToShoot == true)
+            
+            if (ableToShoot == true)
             {
+               
                 StartCoroutine(enemyShoots());
                 StartCoroutine(DoFlash());
             }
@@ -87,6 +94,14 @@ public class Enemy : MonoBehaviour
         
 
     }
+
+    IEnumerator Flash()
+    {
+        avisoDisparo.Play();
+        yield return new WaitForSeconds(1);
+      
+    }
+
     public void Die() //metodo para que se ejecute la muerte
     {
         Destroy(gameObject); // se destruye el enemigo
