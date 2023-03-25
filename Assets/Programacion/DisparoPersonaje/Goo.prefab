@@ -151,7 +151,7 @@ MonoBehaviour:
   speed: 10
   rb: {fileID: 5075409811542264069}
   damage: 20
-  force: 20
+  force: 50
 --- !u!1 &7981697513092554231
 GameObject:
   m_ObjectHideFlags: 0

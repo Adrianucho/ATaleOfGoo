@@ -49,7 +49,16 @@ public class Player : MonoBehaviour
     public GameObject firePointCursor;
     public GameObject informationBoxCollisionObject;
 
+    //Rigibody del player
+    private Rigidbody2D playerRigidbody;
+
+    //Booleana para desactivar los controles
     public bool disabledControls = false;
+
+    //Dimensiones para la caja de colisión del muñeco
+    private Vector2 boxCheckRadius = new Vector2(0.98f, 1f);
+
+    private bool imFallingInTheAir = false;
 
     //Booleana para activar el parry
     public IEnumerator doAParry()
@@ -96,6 +105,10 @@ public class Player : MonoBehaviour
         firePointCursor.GetComponent<SpriteRenderer>().enabled = false;
         player.GetComponent<BoxCollider2D>().enabled = false;
 
+        //Congelamos la posición del jugador
+        playerRigidbody = player.GetComponent<Rigidbody2D>();
+        playerRigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
+
         //Desactivamos la colisión de la caja de información temporalmente para evitar animaciones inoportunas
         informationBoxCollisionObject.GetComponent<BoxCollider2D>().enabled = false;
 
@@ -124,6 +137,10 @@ public class Player : MonoBehaviour
         firePointCursor.GetComponent <SpriteRenderer>().enabled = true;
         player.GetComponent<BoxCollider2D>().enabled = true;
         informationBoxCollisionObject.GetComponent<BoxCollider2D>().enabled = true;
+
+        playerRigidbody = player.GetComponent<Rigidbody2D>();
+        playerRigidbody.constraints = RigidbodyConstraints2D.None;
+        playerRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         //Devolvemos la vida al jugador
         disabledControls = false;
@@ -160,6 +177,31 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        float Yspeed = rb.velocity.y;
+
+        
+
+        if(Yspeed <= -0.1f)
+        {
+            imFallingInTheAir = true;
+        }
+        else
+        {
+            imFallingInTheAir = false;
+        }
+
+        if(imFallingInTheAir == true)
+        {
+
+            playerAnimator.SetBool("estoyCayendo", true);
+
+        }
+        else
+        {
+            playerAnimator.SetBool("estoyCayendo", false);
+        }
 
         GroundCheck();
         move = Input.GetAxis("Horizontal");
@@ -234,10 +276,14 @@ public class Player : MonoBehaviour
 
     void GroundCheck()
     {
+
+        Vector2 center = transform.position;
         isGrounded = false;
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position,groundCheckRadius, groundLayer);
-        if(colliders.Length > 0)
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(center, boxCheckRadius, 0f, groundLayer);
+
+        //Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position,groundCheckRadius, groundLayer);
+        if (colliders.Length > 0)
         {
             isGrounded = true;
 

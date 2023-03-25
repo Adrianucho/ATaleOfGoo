@@ -18,6 +18,9 @@ public class Attack : MonoBehaviour
 
     public GameObject PlayerFigure;
 
+    //Partículas decorativas para disparoJugador
+    public ParticleSystem playerShootDecorationParticles;
+
     private void Awake()
     {
         //Cogemos el script de Player de la figura del jugador
@@ -50,7 +53,7 @@ public class Attack : MonoBehaviour
             //Si tenemos munición, disparamos
             if(PlayerScript.playerShoots > 0)
             {
-
+                
                 Shoot();
 
             }
@@ -63,8 +66,8 @@ public class Attack : MonoBehaviour
     }
     void Shoot ()
     {
+        playerShootDecorationParticles.Play();
         Instantiate(goo, firepoint.position, firepoint.rotation); //instancia la bala en donde le pide
-
         //Reducimos en uno la munición
         PlayerScript.playerShoots = PlayerScript.playerShoots - 1;
     }

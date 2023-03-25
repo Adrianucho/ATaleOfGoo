@@ -15,20 +15,23 @@ public class Enemy : MonoBehaviour
     public int health = 100; // vida del enemigo
     private BoxCollider2D bCol2d;
 
-    private bool ableToShoot = true;
+    private bool playerDetected = true;
     public GameObject particleshoot;
     public int FramesToFlash = 1;
-    //referencia a el efecto ddel aviso disparo
+    //referencia a el efecto del aviso disparo
     public VisualEffect avisoDisparo;
+
     IEnumerator enemyShoots()
     {
-        StartCoroutine(Flash());
-       
-        ableToShoot = false;
+        playerDetected = false;
+
+        avisoDisparo.Play();
+        yield return new WaitForSeconds(0.25f);
+
         particleshoot.SetActive(true);
         Instantiate(Projectile, firepoint.position, firepoint.rotation);
         yield return new WaitForSeconds(1);
-        ableToShoot = true;
+        playerDetected = true;
         particleshoot.SetActive(false);
 
     }
@@ -51,15 +54,15 @@ public class Enemy : MonoBehaviour
         //Check if the laser hit something
         RaycastHit2D hit = Physics2D.Raycast(startPosition, Vector2.left, laserLength, layerMask);
 
-       
       if (hit.collider.tag == "Player" )
         {
-            
-            if (ableToShoot == true)
+            if (playerDetected == true)
             {
-               
+                StartCoroutine(enemyAttacks());
+
+
                 StartCoroutine(enemyShoots());
-                StartCoroutine(DoFlash());
+                //StartCoroutine(DoFlash());
             }
             
 
@@ -79,7 +82,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    IEnumerator DoFlash()
+    /*IEnumerator DoFlash()
     {
         particleshoot.SetActive(true);
         var framesFlashed = 0;
@@ -93,14 +96,18 @@ public class Enemy : MonoBehaviour
         particleshoot.SetActive(false);
         
 
+    }*/
+
+    public IEnumerator enemyAttacks()
+    {
+        
+        avisoDisparo.Play();
+        yield return new WaitForSeconds(0.25f);
+        
+
     }
 
-    IEnumerator Flash()
-    {
-        avisoDisparo.Play();
-        yield return new WaitForSeconds(1);
-      
-    }
+    
 
     public void Die() //metodo para que se ejecute la muerte
     {
