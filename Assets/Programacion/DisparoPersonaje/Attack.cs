@@ -20,6 +20,10 @@ public class Attack : MonoBehaviour
 
     //Partículas decorativas para disparoJugador
     public ParticleSystem playerShootDecorationParticles;
+    //Declaro la 
+    AudioSource audioDisparoSlime;
+    //Lista de AudioSources del juego
+    AudioSource[] AudioSources;
 
     private void Awake()
     {
@@ -31,6 +35,8 @@ public class Attack : MonoBehaviour
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        AudioSources = GetComponents<AudioSource>();
+        audioDisparoSlime = AudioSources[0];
 
     }
 
@@ -53,7 +59,7 @@ public class Attack : MonoBehaviour
             //Si tenemos munición, disparamos
             if(PlayerScript.playerShoots > 0)
             {
-                
+                audioDisparoSlime.Play();
                 Shoot();
 
             }

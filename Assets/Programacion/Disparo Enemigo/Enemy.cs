@@ -21,14 +21,21 @@ public class Enemy : MonoBehaviour
     //referencia a el efecto del aviso disparo
     public VisualEffect avisoDisparo;
 
+    //Declaro la 
+    AudioSource audioDisparoTorreta, audioMuerteEnemigo, audioPredisparo;
+
+    //Lista de AudioSources del juego
+    AudioSource[] AudioSources;
+
     IEnumerator enemyShoots()
     {
         playerDetected = false;
-
+        audioPredisparo.Play();
         avisoDisparo.Play();
         yield return new WaitForSeconds(0.25f);
 
         particleshoot.SetActive(true);
+        audioDisparoTorreta.Play();
         Instantiate(Projectile, firepoint.position, firepoint.rotation);
         yield return new WaitForSeconds(1);
         playerDetected = true;
@@ -41,6 +48,11 @@ public class Enemy : MonoBehaviour
     {
         //
         bCol2d = GetComponent<BoxCollider2D>();
+        AudioSources = GetComponents<AudioSource>();
+        audioDisparoTorreta = AudioSources[0];
+        audioMuerteEnemigo= AudioSources[1];
+        audioPredisparo = AudioSources[2];
+
     }
 
     // Update is called once per frame
@@ -78,6 +90,7 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health<=0) // si la salud llega a 0 muere
         {
+            audioMuerteEnemigo.Play();
             Die();
         }
     }
@@ -111,6 +124,7 @@ public class Enemy : MonoBehaviour
 
     public void Die() //metodo para que se ejecute la muerte
     {
+        
         Destroy(gameObject); // se destruye el enemigo
     }
   
