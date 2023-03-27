@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     private Enemy enemyScriptReference;
     public GameObject enemyModel;
 
+    //Declaro la 
+    AudioSource audioSalto, audioMuerte, audioParry, audioDano;
 
     //Booleana que detecta si el jugador está andando o no
     private bool walking = false;
@@ -58,7 +60,11 @@ public class Player : MonoBehaviour
     //Dimensiones para la caja de colisión del muñeco
     private Vector2 boxCheckRadius = new Vector2(0.98f, 1f);
 
+    //Booleana para comprobar si el personaje está cayendo
     private bool imFallingInTheAir = false;
+
+    //Lista de AudioSources del juego
+    AudioSource[] AudioSources;
 
     //Booleana para activar el parry
     public IEnumerator doAParry()
@@ -68,6 +74,7 @@ public class Player : MonoBehaviour
             //Activamos el parry
             unableToParry = true;
             parryActivated = true;
+            audioParry.Play();
 
 
             playerAnimator.SetBool("finParry", false);
@@ -98,6 +105,7 @@ public class Player : MonoBehaviour
     {
         life = 1;
         disabledControls = true;
+        audioMuerte.Play();
 
         //Desactivamos la estela del jugador, su imagen y el cursor de apuntado
         playerTrail.GetComponent<TrailRenderer>().enabled = false;
@@ -171,7 +179,13 @@ public class Player : MonoBehaviour
 
         enemyScriptReference = enemyModel.GetComponent<Enemy>();
 
+        AudioSources = GetComponents<AudioSource>();
+        audioSalto = AudioSources[0];
+        audioMuerte = AudioSources[1];
+        audioParry = AudioSources[2];
+        audioDano = AudioSources[3];
         
+
     }
 
     // Update is called once per frame
@@ -241,6 +255,8 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded == true && disabledControls == false)
         {
             rb.AddForce(new Vector2(rb.velocity.x, jump));
+
+            audioSalto.Play();
 
             //Indicamos al animator que hemos saltado
             playerAnimator.SetTrigger("heSaltado");
@@ -312,6 +328,7 @@ public class Player : MonoBehaviour
             if(life > 0)
             {
                 life = life - 1;
+                audioDano.Play();  
                
             }
             else
