@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     //Animators del player y de la pantalla de Transición
     public Animator playerAnimator;
     public Animator transitionAnimator;
+    public Animator damageAnimator;
 
     public GameObject Test;
 
@@ -106,6 +107,7 @@ public class Player : MonoBehaviour
         life = 1;
         disabledControls = true;
         audioMuerte.Play();
+        muerteParticles.Play();
 
         //Desactivamos la estela del jugador, su imagen y el cursor de apuntado
         playerTrail.GetComponent<TrailRenderer>().enabled = false;
@@ -328,15 +330,17 @@ public class Player : MonoBehaviour
             if(life > 0)
             {
                 life = life - 1;
-                audioDano.Play();  
-               
+                audioDano.Play();
+                damageAnimator.SetTrigger("heSidoDanado");
             }
             else
             {
-                muerteParticles.Play();
-                StartCoroutine(respawn());
                 
-               
+                StartCoroutine(respawn());
+                damageAnimator.SetTrigger("heSidoDanado");
+
+
+
             }
         }
     }
