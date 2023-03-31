@@ -24,6 +24,7 @@ public class Attack : MonoBehaviour
     AudioSource audioDisparoSlime;
     //Lista de AudioSources del juego
     AudioSource[] AudioSources;
+    
 
     private void Awake()
     {

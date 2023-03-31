@@ -38,9 +38,11 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence() // metodo para cambiar de frase
     {
-        if (sentences.Count == 0 )
+      
+
+        if (sentences.Count == 0)
         {
-         
+            Debug.Log("awa");
             EndDialogue(); //termina el dialogo
             return;
         }

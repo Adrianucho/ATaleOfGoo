@@ -6,14 +6,23 @@ public class DialogueTrigger : MonoBehaviour //script que triggea la conversació
 {
     public Dialogue dialogue;
     public Animator menu;
-
+   
+     void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E)) //si pulsas letra se se abre el cuadro de dialogo
+        {
+            Debug.Log("HAMAMALALAL");
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
+            menu.SetTrigger("IsOpen");
+        }
+    }
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
     }
 
     
-    private void OnTriggerEnter2D(Collider2D collision)
+   /* private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Goo"))
         {
@@ -21,5 +30,5 @@ public class DialogueTrigger : MonoBehaviour //script que triggea la conversació
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
             menu.SetTrigger("IsOpen");
         }
-    }
+    } */
 }
