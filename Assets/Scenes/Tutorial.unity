@@ -349,10 +349,27 @@ MonoBehaviour:
   dialogue:
     name: Prueba
     sentences:
-    - Holi
-    - Esto es una prueba
-    - aaaaaaa
-    - venga
+    - (Initiating protocol AA-47203... Activating translation systems... Recognising
+      user language for the interface...)
+    - "Oh! Hello there little one! I didn\xB4t think I would find another lifeform
+      in this place! How long have you been awake? "
+    - ..........................
+    - You ACTUALLY know how to speak, right?
+    - .................................................
+    - OK, I thought someone intelligent would show up here for once, but never mind.
+    - "Alright, you foolish mucus, pay attention, because I\xB4m telling you how
+      to get the heck out of here."
+    - See that turret over there? Yes, the black thing with whires and yellow lines.
+    - YOU have to DESTROY it, and you can do that shooting at it with the Left Button
+      from that mouse of yours!
+    - Now, I'm sure you've realised that you can't shoot anything right now, yes?
+      Even someone as dumb as you can see that.
+    - To shoot, you should first try to absorb the turret shots by using the right
+      mouse button, do it at the right time and you can get ammunition!
+    - Easier said than done, but that's the way it is, "get gud" or something, I
+      dunno.
+    - By the way, in case you haven't noticed, you can jump using the space key and
+      move with WASD, now get going!
   menu: {fileID: 1463416229}
 --- !u!1 &76313463
 GameObject:
@@ -2041,7 +2058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.018535696, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -489, y: 345}
+  m_AnchoredPosition: {x: -517, y: 345}
   m_SizeDelta: {x: -1724, y: -1050}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &946676708
@@ -2057,7 +2074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2065,7 +2082,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 922d93e8b43c5a740b9a94984c4a937a, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -2077,7 +2094,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NPC NAME
+  m_Text: Sarcasm.OS
 --- !u!222 &946676709
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18426,7 +18443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.010130405, g: 0, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -18502,7 +18519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -18510,8 +18527,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_Font: {fileID: 12800000, guid: 922d93e8b43c5a740b9a94984c4a937a, type: 3}
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -18520,11 +18537,10 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Text
-
-'
+  m_Text: (Initiating protocol AA-47203... Activating translation systems... Recognising
+    user language for the interface...)
 --- !u!222 &1483858853
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18550,8 +18566,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.018535696, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -489, y: 120}
-  m_SizeDelta: {x: -1724, y: -1050}
+  m_AnchoredPosition: {x: 3, y: 154}
+  m_SizeDelta: {x: -1472, y: -1050}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1524452731
 GameObject:
@@ -24412,7 +24428,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000c1cb05ce
+  m_ApplyToSortingLayers: 00000000c1cb05cebf50320a
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
