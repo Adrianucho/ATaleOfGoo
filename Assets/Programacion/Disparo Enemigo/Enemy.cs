@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
     //referencia a el efecto del aviso disparo
     public VisualEffect avisoDisparo;
 
+    public VisualEffect DeathTurretParticles;
+
     //Declaro la 
     AudioSource audioDisparoTorreta, audioMuerteEnemigo, audioPredisparo;
 
@@ -126,6 +128,7 @@ public class Enemy : MonoBehaviour
     {
         
         Destroy(gameObject); // se destruye el enemigo
+        DeathTurretParticles.Play();
     }
   
 }
