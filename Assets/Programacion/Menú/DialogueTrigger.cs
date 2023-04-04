@@ -1,19 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour //script que triggea la conversación
 {
     public Dialogue dialogue;
     public Animator menu;
-   
-     void Update()
+    public GameObject rotation;
+    public Attack attack;
+
+
+    void Start()
+    {
+        attack = rotation.GetComponent<Attack>();
+
+    }
+
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)) //si pulsas letra se se abre el cuadro de dialogo
         {
-            
+            attack.canFire = false;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
             menu.SetTrigger("IsOpen");
+
+
         }
     }
     public void TriggerDialogue()
@@ -21,14 +33,15 @@ public class DialogueTrigger : MonoBehaviour //script que triggea la conversació
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
     }
 
-    
-   /* private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Goo"))
-        {
-            Debug.Log("Peloso");
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
-            menu.SetTrigger("IsOpen");
-        }
-    } */
+
+    /* private void OnTriggerEnter2D(Collider2D collision)
+     {
+         if (collision.CompareTag("Goo"))
+         {
+             Debug.Log("Peloso");
+             FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
+             menu.SetTrigger("IsOpen");
+         }
+     } */
 }
+

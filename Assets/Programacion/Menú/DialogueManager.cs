@@ -7,23 +7,25 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
 
-  
+
     public Text nameText;
     public Text dialogueText;
     public Animator menu;
+    public GameObject rotation;
+    public Attack attack;
 
-    private Queue <string> sentences; //array de las frases
+    private Queue<string> sentences; //array de las frases
 
     void Start()
     {
         sentences = new Queue<string>();
-
+        attack = rotation.GetComponent<Attack>();
 
     }
 
-    public void StartDialogue (Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue)
     {
-      
+
         nameText.text = dialogue.name;
 
         sentences.Clear(); // limpia las frases en el array
@@ -38,11 +40,12 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence() // metodo para cambiar de frase
     {
-      
+
 
         if (sentences.Count == 0)
         {
-            Debug.Log("awa");
+
+            attack.canFire = true;
             EndDialogue(); //termina el dialogo
             return;
         }
@@ -50,10 +53,10 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
-        
+
     }
 
-    IEnumerator TypeSentence (string sentence) //esto srive para que en el dialogue box vayan apareciendo letras poco a poco
+    IEnumerator TypeSentence(string sentence) //esto srive para que en el dialogue box vayan apareciendo letras poco a poco
     {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
@@ -67,6 +70,8 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("Se termino");
         menu.SetTrigger("IsClose");
+
     }
 
 }
+

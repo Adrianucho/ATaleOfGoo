@@ -371,6 +371,8 @@ MonoBehaviour:
     - By the way, in case you haven't noticed, you can jump using the space key and
       move with WASD, now get going!
   menu: {fileID: 1463416229}
+  rotation: {fileID: 546055006}
+  attack: {fileID: 546055008}
 --- !u!1 &76313463
 GameObject:
   m_ObjectHideFlags: 0
@@ -24630,6 +24632,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1463416229}
     - target: {fileID: 5768216747727189595, guid: acc24328089cce844ab16e98d33c2d4a, type: 3}
+      propertyPath: attack
+      value: 
+      objectReference: {fileID: 546055008}
+    - target: {fileID: 5768216747727189595, guid: acc24328089cce844ab16e98d33c2d4a, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 1463416229}
@@ -24637,6 +24643,10 @@ PrefabInstance:
       propertyPath: nameText
       value: 
       objectReference: {fileID: 946676708}
+    - target: {fileID: 5768216747727189595, guid: acc24328089cce844ab16e98d33c2d4a, type: 3}
+      propertyPath: rotation
+      value: 
+      objectReference: {fileID: 546055006}
     - target: {fileID: 5768216747727189595, guid: acc24328089cce844ab16e98d33c2d4a, type: 3}
       propertyPath: dialogueText
       value: 

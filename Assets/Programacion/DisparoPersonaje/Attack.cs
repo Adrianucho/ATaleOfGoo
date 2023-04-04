@@ -24,7 +24,7 @@ public class Attack : MonoBehaviour
     AudioSource audioDisparoSlime;
     //Lista de AudioSources del juego
     AudioSource[] AudioSources;
-    
+
 
     private void Awake()
     {
@@ -50,33 +50,34 @@ public class Attack : MonoBehaviour
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
 
+        Debug.Log(canFire);
 
 
-
-      if (Input.GetButtonDown("Fire1") && PlayerScript.disabledControls == false) //si pulsa el botón se ejecuta el disparo
+        if (Input.GetButtonDown("Fire1") && PlayerScript.disabledControls == false) //si pulsa el botón se ejecuta el disparo
         {
 
 
             //Si tenemos munición, disparamos
-            if(PlayerScript.playerShoots > 0)
+            if (PlayerScript.playerShoots > 0 && canFire == true)
             {
                 audioDisparoSlime.Play();
                 Shoot();
+
 
             }
 
 
         }
 
-       
+
 
     }
-    void Shoot ()
+    void Shoot()
     {
         playerShootDecorationParticles.Play();
         Instantiate(goo, firepoint.position, firepoint.rotation); //instancia la bala en donde le pide
         //Reducimos en uno la munición
         PlayerScript.playerShoots = PlayerScript.playerShoots - 1;
     }
-  
+
 }
