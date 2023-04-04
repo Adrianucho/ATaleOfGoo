@@ -11,7 +11,7 @@ public class DialogueTrigger : MonoBehaviour //script que triggea la conversació
     {
         if (Input.GetKeyDown(KeyCode.E)) //si pulsas letra se se abre el cuadro de dialogo
         {
-            Debug.Log("HAMAMALALAL");
+            
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
             menu.SetTrigger("IsOpen");
         }
