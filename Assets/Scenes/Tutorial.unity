@@ -2657,7 +2657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jump: 1100
-  playerShoots: 3
+  playerShoots: 0
   enemyModel: {fileID: 1598219587}
   playerAnimator: {fileID: 1140140468}
   transitionAnimator: {fileID: 626423693}

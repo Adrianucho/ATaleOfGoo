@@ -105,6 +105,7 @@ public class Player : MonoBehaviour
     public IEnumerator respawn()
     {
         life = 1;
+        playerShoots = 0;
         disabledControls = true;
         audioMuerte.Play();
         muerteParticles.Play();
