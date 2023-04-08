@@ -24,10 +24,12 @@ public class Enemy : MonoBehaviour
     public VisualEffect DeathTurretParticles;
 
     //Declaro la 
-    AudioSource audioDisparoTorreta, audioMuerteEnemigo, audioPredisparo;
+    AudioSource audioDisparoTorreta, audioMuerteEnemigo, audioPredisparo, audioTorretaDanada;
 
     //Lista de AudioSources del juego
     AudioSource[] AudioSources;
+
+    public AudioClip sonidoMuerteParaTorreta;
 
     IEnumerator enemyShoots()
     {
@@ -45,6 +47,18 @@ public class Enemy : MonoBehaviour
 
     }
 
+    IEnumerator persistentTurret()
+    {
+        //Desactivamos el sprite renderer
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        audioMuerteEnemigo.Play();
+        DeathTurretParticles.Play();
+
+        yield return new WaitForSeconds(2);
+
+        Die();
+    }
 
     void Start()
     {
@@ -54,6 +68,8 @@ public class Enemy : MonoBehaviour
         audioDisparoTorreta = AudioSources[0];
         audioMuerteEnemigo= AudioSources[1];
         audioPredisparo = AudioSources[2];
+        audioTorretaDanada = AudioSources[3];
+
 
     }
 
@@ -87,13 +103,15 @@ public class Enemy : MonoBehaviour
 
     }
 
+
     public void TakeDamage (int damage) //metodo que quita vida del enemigo
     {
+        audioTorretaDanada.Play();
         health -= damage;
         if (health<=0) // si la salud llega a 0 muere
         {
-            audioMuerteEnemigo.Play();
-            Die();
+            StartCoroutine(persistentTurret());
+            
         }
     }
 
@@ -126,9 +144,8 @@ public class Enemy : MonoBehaviour
 
     public void Die() //metodo para que se ejecute la muerte
     {
-        
         Destroy(gameObject); // se destruye el enemigo
-        DeathTurretParticles.Play();
+        
     }
   
 }
