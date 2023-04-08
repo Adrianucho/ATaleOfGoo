@@ -33,7 +33,10 @@ public class Enemy : MonoBehaviour
 
     //Referencia a la flecha verde y a la pared de la derecha para las concidiones de victoria
     public GameObject arrow;
-    
+
+    public Player player;
+    public GameObject playermodel;
+
 
     IEnumerator enemyShoots()
     {
@@ -76,13 +79,14 @@ public class Enemy : MonoBehaviour
         audioMuerteEnemigo= AudioSources[1];
         audioPredisparo = AudioSources[2];
         audioTorretaDanada = AudioSources[3];
-
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         //Length of the ray
         float laserLength = 10f;
         //Start point of the laser
@@ -93,7 +97,7 @@ public class Enemy : MonoBehaviour
 
       if (hit.collider.tag == "Player" )
         {
-            if (playerDetected == true)
+            if (playerDetected == true && health > 0)
             {
                 StartCoroutine(enemyAttacks());
 
@@ -101,15 +105,19 @@ public class Enemy : MonoBehaviour
                 StartCoroutine(enemyShoots());
                 //StartCoroutine(DoFlash());
             }
-            
+           
+           
 
         }
+       
 
-        
+
+
 
 
     }
 
+    
 
     public void TakeDamage (int damage) //metodo que quita vida del enemigo
     {

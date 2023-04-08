@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
             //El juego comprueba si hacer daño o no
             playerScriptReference.checkDamageStatus();
 
-            Debug.Log("Le ha dado");
+           
             Destroy(gameObject);
         }
         if (col.gameObject.tag == "Floor") 

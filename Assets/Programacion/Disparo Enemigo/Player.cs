@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     public float speed;
     public float jump;
-    private float life = 1;
+    public float life = 1;
     public float playerShoots;
 
     //Booleanas para activar y desactivar el parry y comprobar si ya está activo
@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
     //Lista de AudioSources del juego
     AudioSource[] AudioSources;
 
+    public Enemy enemy;
 
     //Referencia a la flecha verde y a la pared de la derecha para las concidiones de victoria
     
@@ -113,11 +114,12 @@ public class Player : MonoBehaviour
     public IEnumerator respawn()
     {
         life = 1;
+        enemy.health = 40;
         playerShoots = 0;
         disabledControls = true;
         audioMuerte.Play();
         muerteParticles.Play();
-        
+       
 
         //Desactivamos la estela del jugador, su imagen y el cursor de apuntado
         playerTrail.GetComponent<TrailRenderer>().enabled = false;
@@ -196,13 +198,16 @@ public class Player : MonoBehaviour
         audioMuerte = AudioSources[1];
         audioParry = AudioSources[2];
         audioDano = AudioSources[3];
-        
 
+      enemy = enemyModel.GetComponent<Enemy>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
+
         if (GameObject.FindGameObjectsWithTag("Turret").Length == 0)
         {
             
