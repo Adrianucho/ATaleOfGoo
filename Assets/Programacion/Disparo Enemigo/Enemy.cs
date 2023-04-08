@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public int health = 100; // vida del enemigo
     private BoxCollider2D bCol2d;
 
-    private bool playerDetected = true;
+    public bool playerDetected = true;
     public GameObject particleshoot;
     public int FramesToFlash = 1;
     //referencia a el efecto del aviso disparo
@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
     public Player player;
     public GameObject playermodel;
 
+    public bool morirUnaVez = false;
 
     IEnumerator enemyShoots()
     {
@@ -56,6 +57,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator persistentTurret()
     {
+        morirUnaVez = true;
         //Desactivamos el sprite renderer
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -65,9 +67,11 @@ public class Enemy : MonoBehaviour
         
 
 
-        yield return new WaitForSeconds(0.5F);
+        //yield return new WaitForSeconds(0.5F);
 
         Die();
+
+        yield return null;
     }
 
     void Start()
@@ -86,7 +90,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
         //Length of the ray
         float laserLength = 10f;
         //Start point of the laser
@@ -99,6 +102,8 @@ public class Enemy : MonoBehaviour
         {
             if (playerDetected == true && health > 0)
             {
+
+                
                 StartCoroutine(enemyAttacks());
 
 
@@ -108,12 +113,12 @@ public class Enemy : MonoBehaviour
            
            
 
-        }
-       
+      }
 
 
 
 
+        Debug.Log(playerDetected);
 
     }
 
@@ -123,7 +128,7 @@ public class Enemy : MonoBehaviour
     {
         audioTorretaDanada.Play();
         health -= damage;
-        if (health<=0) // si la salud llega a 0 muere
+        if (health<=0 && morirUnaVez == false) // si la salud llega a 0 muere
         {
             StartCoroutine(persistentTurret());
             
@@ -159,7 +164,7 @@ public class Enemy : MonoBehaviour
 
     public void Die() //metodo para que se ejecute la muerte
     {
-        Destroy(gameObject); // se destruye el enemigo
+        this.gameObject.SetActive(false); // se destruye el enemigo
         
     }
   

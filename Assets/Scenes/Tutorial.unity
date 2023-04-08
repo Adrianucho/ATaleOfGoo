@@ -2859,6 +2859,8 @@ MonoBehaviour:
   enemy: {fileID: 1598219588}
   rightStageCollision: {fileID: 895353785}
   letterE: {fileID: 1817974157}
+  torretasConTag: []
+  menu: {fileID: 1463416229}
   rb: {fileID: 1140140463}
   groundCheckCollider: {fileID: 1817381572}
   isGrounded: 0
@@ -18855,6 +18857,7 @@ MonoBehaviour:
   timebetween: 0
   starttimeb: 1
   health: 40
+  playerDetected: 1
   particleshoot: {fileID: 1276839859}
   FramesToFlash: 1
   avisoDisparo: {fileID: 1671106049}
@@ -18863,6 +18866,7 @@ MonoBehaviour:
   arrow: {fileID: 2094044044}
   player: {fileID: 1140140467}
   playermodel: {fileID: 1140140462}
+  morirUnaVez: 0
 --- !u!212 &1598219589
 SpriteRenderer:
   m_ObjectHideFlags: 0

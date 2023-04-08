@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     public Animator transitionAnimator;
     public Animator damageAnimator;
 
+
+
     public GameObject Test;
 
     //Referencia a la estela que deja el jugador
@@ -74,6 +76,12 @@ public class Player : MonoBehaviour
     public GameObject rightStageCollision;
 
     public GameObject letterE;
+   
+
+    public GameObject[] torretasConTag;
+
+    //Animator del cartel
+    public Animator menu;
 
 
     //Booleana para activar el parry
@@ -119,6 +127,8 @@ public class Player : MonoBehaviour
         disabledControls = true;
         audioMuerte.Play();
         muerteParticles.Play();
+
+        menu.SetTrigger("muerte");
        
 
         //Desactivamos la estela del jugador, su imagen y el cursor de apuntado
@@ -152,6 +162,31 @@ public class Player : MonoBehaviour
         rb.velocity = Vector2.zero;
         enemyScriptReference.timebetween = enemyScriptReference.starttimeb;
         letterE.SetActive(true);
+        
+
+
+        /*for (int i = 0; i < torretasConTag.Length; i++)
+        {
+            torretasConTag[i].SetActive(true);
+        }*/
+
+        foreach (GameObject Torreta in torretasConTag)
+        {
+            Torreta.SetActive(true);
+            Torreta.GetComponent<SpriteRenderer>().enabled = true;
+            Torreta.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        enemy.morirUnaVez = false;
+        enemy.playerDetected = true;
+        
+
+
+
+
+
+
+
+
 
         //Reactivamos la imágenes
         playerTrail.GetComponent<TrailRenderer>().enabled = true;
@@ -199,14 +234,22 @@ public class Player : MonoBehaviour
         audioParry = AudioSources[2];
         audioDano = AudioSources[3];
 
-      enemy = enemyModel.GetComponent<Enemy>();
+        enemy = enemyModel.GetComponent<Enemy>();
+
+        torretasConTag = GameObject.FindGameObjectsWithTag("Turret");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            life = life - 1;
+            checkDamageStatus();
+
+        }
 
         if (GameObject.FindGameObjectsWithTag("Turret").Length == 0)
         {
@@ -359,6 +402,8 @@ public class Player : MonoBehaviour
                 
                 StartCoroutine(respawn());
                 damageAnimator.SetTrigger("heSidoDanado");
+                letterE.SetActive(false);
+
 
 
 
