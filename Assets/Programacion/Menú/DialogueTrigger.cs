@@ -9,7 +9,7 @@ public class DialogueTrigger : MonoBehaviour //script que triggea la conversació
     public Animator menu;
     public GameObject rotation;
     public Attack attack;
-
+    public GameObject letrae;
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class DialogueTrigger : MonoBehaviour //script que triggea la conversació
             attack.canFire = false;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
             menu.SetTrigger("IsOpen");
-
+            letrae.SetActive(false);
 
         }
     }

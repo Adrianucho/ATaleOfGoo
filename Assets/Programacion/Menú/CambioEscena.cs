@@ -15,4 +15,6 @@ public class CambioEscena : MonoBehaviour
         Application.Quit();
         Debug.Log("HastaLueguito");
     }
+
+    
 }
