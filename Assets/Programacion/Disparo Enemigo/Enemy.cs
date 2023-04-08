@@ -31,6 +31,10 @@ public class Enemy : MonoBehaviour
 
     public AudioClip sonidoMuerteParaTorreta;
 
+    //Referencia a la flecha verde y a la pared de la derecha para las concidiones de victoria
+    public GameObject arrow;
+    
+
     IEnumerator enemyShoots()
     {
         playerDetected = false;
@@ -54,15 +58,18 @@ public class Enemy : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         audioMuerteEnemigo.Play();
         DeathTurretParticles.Play();
+        arrow.SetActive(true);
+        
 
-        yield return new WaitForSeconds(2);
+
+        yield return new WaitForSeconds(0.5F);
 
         Die();
     }
 
     void Start()
     {
-        //
+        
         bCol2d = GetComponent<BoxCollider2D>();
         AudioSources = GetComponents<AudioSource>();
         audioDisparoTorreta = AudioSources[0];

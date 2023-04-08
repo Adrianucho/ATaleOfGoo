@@ -67,6 +67,14 @@ public class Player : MonoBehaviour
     //Lista de AudioSources del juego
     AudioSource[] AudioSources;
 
+
+    //Referencia a la flecha verde y a la pared de la derecha para las concidiones de victoria
+    
+    public GameObject rightStageCollision;
+
+    public GameObject letterE;
+
+
     //Booleana para activar el parry
     public IEnumerator doAParry()
     {
@@ -109,6 +117,7 @@ public class Player : MonoBehaviour
         disabledControls = true;
         audioMuerte.Play();
         muerteParticles.Play();
+        
 
         //Desactivamos la estela del jugador, su imagen y el cursor de apuntado
         playerTrail.GetComponent<TrailRenderer>().enabled = false;
@@ -140,7 +149,7 @@ public class Player : MonoBehaviour
         transform.position = startPosition;
         rb.velocity = Vector2.zero;
         enemyScriptReference.timebetween = enemyScriptReference.starttimeb;
-
+        letterE.SetActive(true);
 
         //Reactivamos la imágenes
         playerTrail.GetComponent<TrailRenderer>().enabled = true;
@@ -194,6 +203,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.FindGameObjectsWithTag("Turret").Length == 0)
+        {
+            
+            rightStageCollision.SetActive(false);
+        }
+
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         float Yspeed = rb.velocity.y;
