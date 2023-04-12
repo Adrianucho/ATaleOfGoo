@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
         
 
 
-        //yield return new WaitForSeconds(0.5F);
+        yield return new WaitForSeconds(0.5F);
 
         Die();
 
