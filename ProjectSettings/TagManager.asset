@@ -8,6 +8,8 @@ TagManager:
   - Box
   - Goo
   - Rotation
+  - Turret
+  - TurretDown
   layers:
   - Default
   - TransparentFX

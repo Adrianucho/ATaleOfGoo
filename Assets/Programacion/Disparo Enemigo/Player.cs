@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
     private Enemy enemyScriptReference;
     public GameObject enemyModel;
 
+ 
+
+
     //Declaro la 
     AudioSource audioSalto, audioMuerte, audioParry, audioDano;
 

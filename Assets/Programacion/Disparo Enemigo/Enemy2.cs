@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class Enemy : MonoBehaviour
+public class Enemy2 : MonoBehaviour
 {
-   public GameObject Projectile; // referencia del game object de la bala
+    public GameObject Projectile; // referencia del game object de la bala
 
     public Transform firepoint; // donde va a disparar
 
@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
         audioMuerteEnemigo.Play();
         DeathTurretParticles.Play();
         arrow.SetActive(true);
-        
+
 
 
         yield return new WaitForSeconds(0.5F);
@@ -76,80 +76,44 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        
+
         bCol2d = GetComponent<BoxCollider2D>();
         AudioSources = GetComponents<AudioSource>();
         audioDisparoTorreta = AudioSources[0];
-        audioMuerteEnemigo= AudioSources[1];
+        audioMuerteEnemigo = AudioSources[1];
         audioPredisparo = AudioSources[2];
         audioTorretaDanada = AudioSources[3];
-        
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Length of the ray
+        float laserLength = 10f;
+        //Start point of the laser
+        Vector2 startPosition = (Vector2)transform.position - new Vector2(0, (bCol2d.bounds.extents.y + 0.05f));
+        int layerMask = LayerMask.GetMask("Default");
+        //Check if the laser hit something
+        RaycastHit2D hit = Physics2D.Raycast(startPosition, Vector2.down, laserLength, layerMask);
 
-        if (gameObject.CompareTag("Turret"))
+        if (hit.collider.tag == "Player")
         {
-            //Length of the ray
-            float laserLength = 10f;
-            //Start point of the laser
-            Vector2 startPosition = (Vector2)transform.position - new Vector2(0, (bCol2d.bounds.extents.y + 0.05f));
-            int layerMask = LayerMask.GetMask("Default");
-            //Check if the laser hit something
-            RaycastHit2D hit = Physics2D.Raycast(startPosition, Vector2.left, laserLength, layerMask);
-
-            if (hit.collider.tag == "Player")
+            if (playerDetected == true && health > 0)
             {
-                if (playerDetected == true && health > 0)
-                {
 
 
-                    StartCoroutine(enemyAttacks());
+                StartCoroutine(enemyAttacks());
 
 
-                    StartCoroutine(enemyShoots());
-                    //StartCoroutine(DoFlash());
-                }
-
-
-
+                StartCoroutine(enemyShoots());
+                //StartCoroutine(DoFlash());
             }
+
+
+
         }
-
-        if (gameObject.CompareTag("TurretDown"))
-        {
-            //Length of the ray
-            float laserLength = 10f;
-            //Start point of the laser
-            Vector2 startPosition = (Vector2)transform.position - new Vector2(0, (bCol2d.bounds.extents.y + 0.05f));
-            int layerMask = LayerMask.GetMask("Default");
-            //Check if the laser hit something
-            RaycastHit2D hit = Physics2D.Raycast(startPosition, Vector2.down, laserLength, layerMask);
-
-            if (hit.collider.tag == "Player")
-            {
-                if (playerDetected == true && health > 0)
-                {
-
-
-                    StartCoroutine(enemyAttacks());
-
-
-                    StartCoroutine(enemyShoots());
-                    //StartCoroutine(DoFlash());
-                }
-
-
-
-            }
-        }
-
-
-
-
 
 
 
@@ -158,16 +122,16 @@ public class Enemy : MonoBehaviour
 
     }
 
-    
 
-    public void TakeDamage (int damage) //metodo que quita vida del enemigo
+
+    public void TakeDamage(int damage) //metodo que quita vida del enemigo
     {
         audioTorretaDanada.Play();
         health -= damage;
-        if (health<=0 && morirUnaVez == false) // si la salud llega a 0 muere
+        if (health <= 0 && morirUnaVez == false) // si la salud llega a 0 muere
         {
             StartCoroutine(persistentTurret());
-            
+
         }
     }
 
@@ -189,19 +153,19 @@ public class Enemy : MonoBehaviour
 
     public IEnumerator enemyAttacks()
     {
-        
+
         avisoDisparo.Play();
         yield return new WaitForSeconds(0.25f);
-        
+
 
     }
 
-    
+
 
     public void Die() //metodo para que se ejecute la muerte
     {
         this.gameObject.SetActive(false); // se destruye el enemigo
-        
+
     }
-  
+
 }
