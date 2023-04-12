@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
 
 
 
-    public GameObject Test;
+   
 
     //Referencia a la estela que deja el jugador
     public GameObject playerTrail;
@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
 
 
             playerAnimator.SetBool("finParry", false);
-            Test.SetActive(true);
+          
 
 
             playerAnimator.SetTrigger("heHechoParry");
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
             parryActivated = false;
             playerAnimator.SetBool("finParry", true);
 
-            Test.SetActive(false);
+        
 
 
             //Esperamos X tiempo antes de poder volver a activar el parry
