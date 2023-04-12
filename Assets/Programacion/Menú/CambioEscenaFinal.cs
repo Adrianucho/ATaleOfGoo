@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CambioEscena : MonoBehaviour
+public class CambioEscenaFinal : MonoBehaviour
 {
-    public void changescene (string Tutorial)
+
+    public void changescene(string Tutorial)
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("Tutorial2");
     }
 
-   public void QuitGame()
+    public void QuitGame()
     {
         Application.Quit();
         Debug.Log("HastaLueguito");
@@ -20,8 +21,8 @@ public class CambioEscena : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("Tutorial2");
+            SceneManager.LoadScene("EscenaFinal");
         }
-       
+
     }
 }
