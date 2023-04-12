@@ -2859,6 +2859,7 @@ MonoBehaviour:
   enemy: {fileID: 1598219588}
   rightStageCollision: {fileID: 895353785}
   letterE: {fileID: 1817974157}
+  flechaVerde: {fileID: 2094044044}
   torretasConTag: []
   menu: {fileID: 1463416229}
   rb: {fileID: 1140140463}

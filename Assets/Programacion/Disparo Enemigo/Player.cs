@@ -76,6 +76,7 @@ public class Player : MonoBehaviour
     public GameObject rightStageCollision;
 
     public GameObject letterE;
+    public GameObject flechaVerde;
    
 
     public GameObject[] torretasConTag;
@@ -162,6 +163,7 @@ public class Player : MonoBehaviour
         rb.velocity = Vector2.zero;
         enemyScriptReference.timebetween = enemyScriptReference.starttimeb;
         letterE.SetActive(true);
+        flechaVerde.SetActive(false);
         
 
 
