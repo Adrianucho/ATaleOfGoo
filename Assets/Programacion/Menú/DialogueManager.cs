@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-
+        attack.canFire = false;
         nameText.text = dialogue.name;
 
         sentences.Clear(); // limpia las frases en el array

@@ -373,7 +373,7 @@ MonoBehaviour:
   menu: {fileID: 1463416229}
   rotation: {fileID: 546055006}
   attack: {fileID: 546055008}
-  letrae: {fileID: 1817974157}
+  letrae: {fileID: 0}
 --- !u!1 &76313463
 GameObject:
   m_ObjectHideFlags: 0
@@ -8419,7 +8419,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9e13eda2e6a83284599c2e9a10e96c5e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c26a8945609e6c945acee5169ac41578, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -24524,7 +24524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1817974158
 Animator:
   serializedVersion: 4
@@ -24552,7 +24552,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817974157}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -24913,6 +24913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5768216747727189594, guid: acc24328089cce844ab16e98d33c2d4a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5768216747727189595, guid: acc24328089cce844ab16e98d33c2d4a, type: 3}
       propertyPath: menu
       value: 
@@ -25107,7 +25111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2135156713
 MonoBehaviour:
   m_ObjectHideFlags: 0
