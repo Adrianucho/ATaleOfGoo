@@ -21,7 +21,7 @@ public class DialogueTrigger : MonoBehaviour //script que triggea la conversació
     {
         if (Input.GetKeyDown(KeyCode.E)) //si pulsas letra se se abre el cuadro de dialogo
         {
-            attack.canFire = false;
+           // attack.canFire = false;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
             menu.SetTrigger("IsOpen");
             letrae.SetActive(false);

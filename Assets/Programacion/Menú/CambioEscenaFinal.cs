@@ -21,7 +21,7 @@ public class CambioEscenaFinal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("EscenaFinal");
+            SceneManager.LoadScene("PantallaFinal");
         }
 
     }
