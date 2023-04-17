@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
 
     public bool morirUnaVez = false;
 
+
     IEnumerator enemyShoots()
     {
         playerDetected = false;
@@ -62,10 +63,6 @@ public class Enemy : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         audioMuerteEnemigo.Play();
         DeathTurretParticles.Play();
-        
-
-
-        yield return new WaitForSeconds(0.5F);
 
         Die();
 
