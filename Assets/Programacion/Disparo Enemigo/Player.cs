@@ -242,6 +242,8 @@ public class Player : MonoBehaviour
         enemy = enemyModel.GetComponent<Enemy>();
 
         torretasConTag = GameObject.FindGameObjectsWithTag("Turret");
+        torretasConTag = GameObject.FindGameObjectsWithTag("TurretDown");
+
 
     }
 
