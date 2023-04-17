@@ -87,6 +87,10 @@ public class Player : MonoBehaviour
     //Animator del cartel
     public Animator menu;
 
+    //Referencia a attack
+    public GameObject rotation;
+    public Attack attack;
+
 
     //Booleana para activar el parry
     public IEnumerator doAParry()
@@ -111,7 +115,7 @@ public class Player : MonoBehaviour
             playerAnimator.SetBool("finParry", true);
 
         
-
+            
 
             //Esperamos X tiempo antes de poder volver a activar el parry
             yield return new WaitForSeconds(0.25F);
@@ -133,6 +137,8 @@ public class Player : MonoBehaviour
         muerteParticles.Play();
 
         menu.SetTrigger("muerte");
+
+        attack.canFire = true;
        
 
         //Desactivamos la estela del jugador, su imagen y el cursor de apuntado
@@ -244,7 +250,7 @@ public class Player : MonoBehaviour
         torretasConTag = GameObject.FindGameObjectsWithTag("Turret");
         torretasConTag = GameObject.FindGameObjectsWithTag("TurretDown");
 
-
+        attack = rotation.GetComponent<Attack>();
     }
 
     // Update is called once per frame

@@ -2830,6 +2830,8 @@ MonoBehaviour:
   flechaVerde: {fileID: 2094044044}
   torretasConTag: []
   menu: {fileID: 1463416229}
+  rotation: {fileID: 546055006}
+  attack: {fileID: 546055008}
   rb: {fileID: 1140140463}
   groundCheckCollider: {fileID: 1817381572}
   isGrounded: 0
