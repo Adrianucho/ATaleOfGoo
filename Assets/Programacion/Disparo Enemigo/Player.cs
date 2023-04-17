@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
@@ -81,7 +82,8 @@ public class Player : MonoBehaviour
     public GameObject flechaVerde;
    
 
-    public GameObject[] torretasConTag;
+    public GameObject[] torretasConTag = new GameObject[0];
+
 
     //Animator del cartel
     public Animator menu;
@@ -189,15 +191,7 @@ public class Player : MonoBehaviour
         }
         enemy.morirUnaVez = false;
         enemy.playerDetected = true;
-        
-
-
-
-
-
-
-
-
+       
 
         //Reactivamos la imágenes
         playerTrail.GetComponent<TrailRenderer>().enabled = true;
@@ -248,8 +242,10 @@ public class Player : MonoBehaviour
 
         enemy = enemyModel.GetComponent<Enemy>();
 
-        torretasConTag = GameObject.FindGameObjectsWithTag("Turret");
-        torretasConTag = GameObject.FindGameObjectsWithTag("TurretDown");
+        torretasConTag = torretasConTag.Concat(GameObject.FindGameObjectsWithTag("Turret")).ToArray();
+        torretasConTag = torretasConTag.Concat(GameObject.FindGameObjectsWithTag("TurretDown")).ToArray();
+
+
 
         attack = rotation.GetComponent<Attack>();
     }
@@ -266,11 +262,17 @@ public class Player : MonoBehaviour
 
         }
 
-        if (GameObject.FindGameObjectsWithTag("Turret").Length == 0)
+        /*if (GameObject.FindGameObjectsWithTag("Turret").Length == 0)
         {
             
             rightStageCollision.SetActive(false);
         }
+
+        if (GameObject.FindGameObjectsWithTag("TurretDown").Length == 0)
+        {
+
+            rightStageCollision.SetActive(false);
+        }*/
 
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -369,6 +371,21 @@ public class Player : MonoBehaviour
 
         }
 
+        bool allInactive = true;
+
+        for (int i = 0; i < torretasConTag.Length; i++)
+        {
+            if (torretasConTag[i].activeInHierarchy)
+            {
+                allInactive = false;
+                break;
+            }
+        }
+
+        if (allInactive)
+        {
+            rightStageCollision.SetActive(false);
+        }
     }
 
     void GroundCheck()
