@@ -878,7 +878,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Cr\xE9ditos"
+  m_Text: Credits
 --- !u!222 &379578799
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2180,6 +2180,8 @@ MonoBehaviour:
   flechaVerde: {fileID: 0}
   torretasConTag: []
   menu: {fileID: 0}
+  rotation: {fileID: 0}
+  attack: {fileID: 0}
   rb: {fileID: 1140140463}
   groundCheckCollider: {fileID: 1817381572}
   isGrounded: 0
@@ -12725,7 +12727,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA1Muchas gracias por jugar!"
+  m_Text: Thank you for playing!
 --- !u!222 &1817697631
 CanvasRenderer:
   m_ObjectHideFlags: 0

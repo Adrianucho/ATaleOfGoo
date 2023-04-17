@@ -11,9 +11,13 @@ public class DialogueTrigger : MonoBehaviour //script que triggea la conversació
     public Attack attack;
     public GameObject letrae;
 
+    public Player playerScript;
+    public GameObject playerCharacter;
+
     void Start()
     {
         attack = rotation.GetComponent<Attack>();
+        playerScript = playerCharacter.GetComponent<Player>();
 
     }
 
@@ -21,10 +25,15 @@ public class DialogueTrigger : MonoBehaviour //script que triggea la conversació
     {
         if (Input.GetKeyDown(KeyCode.E)) //si pulsas letra se se abre el cuadro de dialogo
         {
-           // attack.canFire = false;
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
-            menu.SetTrigger("IsOpen");
-            letrae.SetActive(false);
+
+            if(playerScript.deactivateE == false)
+            {
+                // attack.canFire = false;
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
+                menu.SetTrigger("IsOpen");
+                letrae.SetActive(false);
+            }
+           
 
         }
     }

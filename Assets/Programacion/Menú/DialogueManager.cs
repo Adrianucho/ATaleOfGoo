@@ -14,18 +14,24 @@ public class DialogueManager : MonoBehaviour
     public GameObject rotation;
     public Attack attack;
 
+
+
     private Queue<string> sentences; //array de las frases
+
+    public Player playerScript;
+    public GameObject playerGameobject;
 
     void Start()
     {
         sentences = new Queue<string>();
         attack = rotation.GetComponent<Attack>();
-
+        playerScript = playerGameobject.GetComponent<Player>();
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
         attack.canFire = false;
+        playerScript.deactivateE = true;
         nameText.text = dialogue.name;
 
         sentences.Clear(); // limpia las frases en el array
@@ -46,6 +52,7 @@ public class DialogueManager : MonoBehaviour
         {
 
             attack.canFire = true;
+            playerScript.deactivateE = false;
             EndDialogue(); //termina el dialogo
             return;
         }

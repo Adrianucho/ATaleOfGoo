@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 using UnityEngine.VFX;
 
 public class Player : MonoBehaviour
@@ -91,7 +90,7 @@ public class Player : MonoBehaviour
     public GameObject rotation;
     public Attack attack;
 
-
+    public bool deactivateE = false;
     //Booleana para activar el parry
     public IEnumerator doAParry()
     {
@@ -133,6 +132,7 @@ public class Player : MonoBehaviour
         enemy.health = 40;
         playerShoots = 0;
         disabledControls = true;
+        deactivateE = true;
         audioMuerte.Play();
         muerteParticles.Play();
 
@@ -212,6 +212,7 @@ public class Player : MonoBehaviour
 
         //Devolvemos la vida al jugador
         disabledControls = false;
+        deactivateE = false;
         yield return null;
 
 
@@ -256,6 +257,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(disabledControls);
 
         if (Input.GetKeyDown(KeyCode.R))
         {
