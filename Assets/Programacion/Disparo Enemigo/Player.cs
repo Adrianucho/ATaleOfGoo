@@ -253,7 +253,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(disabledControls);
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -385,6 +384,7 @@ public class Player : MonoBehaviour
         if (allInactive)
         {
             rightStageCollision.SetActive(false);
+            flechaVerde.SetActive(true);
         }
     }
 

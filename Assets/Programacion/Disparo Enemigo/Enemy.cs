@@ -57,13 +57,11 @@ public class Enemy : MonoBehaviour
 
     IEnumerator persistentTurret()
     {
-        morirUnaVez = true;
         //Desactivamos el sprite renderer
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         audioMuerteEnemigo.Play();
         DeathTurretParticles.Play();
-        arrow.SetActive(true);
         
 
 
@@ -90,6 +88,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(playerDetected);
+
 
         if (gameObject.CompareTag("Turret"))
         {
@@ -103,7 +103,7 @@ public class Enemy : MonoBehaviour
 
             if (hit.collider.tag == "Player")
             {
-                if (playerDetected == true && health > 0)
+                if (playerDetected == true)
                 {
 
 
@@ -154,7 +154,6 @@ public class Enemy : MonoBehaviour
 
 
 
-        Debug.Log(playerDetected);
 
     }
 
@@ -164,7 +163,7 @@ public class Enemy : MonoBehaviour
     {
         audioTorretaDanada.Play();
         health -= damage;
-        if (health<=0 && morirUnaVez == false) // si la salud llega a 0 muere
+        if (health<=0) // si la salud llega a 0 muere
         {
             StartCoroutine(persistentTurret());
             
@@ -200,6 +199,9 @@ public class Enemy : MonoBehaviour
 
     public void Die() //metodo para que se ejecute la muerte
     {
+        playerDetected = true;
+        health = 40;
+        avisoDisparo.Stop();
         this.gameObject.SetActive(false); // se destruye el enemigo
         
     }

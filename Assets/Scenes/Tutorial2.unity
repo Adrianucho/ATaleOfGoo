@@ -374,6 +374,8 @@ MonoBehaviour:
   rotation: {fileID: 546055006}
   attack: {fileID: 546055008}
   letrae: {fileID: 0}
+  playerScript: {fileID: 0}
+  playerCharacter: {fileID: 0}
 --- !u!1 &76313463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,6 +1971,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5839574492525907407, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 259ef975111114c4c8be868fa08ac79a, type: 2}
+    - target: {fileID: 5839574493536298629, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
@@ -3270,6 +3280,7 @@ MonoBehaviour:
   menu: {fileID: 1463416229}
   rotation: {fileID: 546055006}
   attack: {fileID: 546055008}
+  deactivateE: 0
   rb: {fileID: 1140140463}
   groundCheckCollider: {fileID: 1817381572}
   isGrounded: 0
