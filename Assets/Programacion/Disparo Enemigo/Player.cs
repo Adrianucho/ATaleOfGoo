@@ -94,6 +94,8 @@ public class Player : MonoBehaviour
 
     public bool deactivateE = false;
     //Booleana para activar el parry
+
+    public bool deactivateDamageAnimationBool = false;
     public IEnumerator doAParry()
     {
         if (unableToParry == false)
@@ -426,14 +428,25 @@ public class Player : MonoBehaviour
             if(life > 0)
             {
                 life = life - 1;
+
+                if (deactivateDamageAnimationBool == false)
+                {
+
+                    StartCoroutine(blockdDamageAnimation());
+
+                }
                 audioDano.Play();
-                damageAnimator.SetTrigger("heSidoDanado");
             }
             else
             {
                 
                 StartCoroutine(respawn());
-                damageAnimator.SetTrigger("heSidoDanado");
+                if (deactivateDamageAnimationBool == false)
+                {
+
+                    StartCoroutine(blockdDamageAnimation());
+
+                }
                 letterE.SetActive(false);
 
 
@@ -443,6 +456,17 @@ public class Player : MonoBehaviour
         }
     }
 
-   
+    public IEnumerator blockdDamageAnimation()
+    {
 
+
+        deactivateDamageAnimationBool = true;
+        damageAnimator.SetTrigger("heSidoDanado");
+        yield return new WaitForSeconds(0.85f);
+        deactivateDamageAnimationBool = false;
+
+
+
+    }
+   
 }
