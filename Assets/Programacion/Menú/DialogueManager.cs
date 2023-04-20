@@ -21,6 +21,8 @@ public class DialogueManager : MonoBehaviour
     public Player playerScript;
     public GameObject playerGameobject;
 
+    public bool blockiIsClose = false;
+
     void Start()
     {
         sentences = new Queue<string>();
@@ -30,6 +32,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        blockiIsClose = false;
         attack.canFire = false;
         playerScript.deactivateE = true;
         nameText.text = dialogue.name;
@@ -75,10 +78,24 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        Debug.Log("Se termino");
+
+        if(blockiIsClose == false)
+        {
+
+            StartCoroutine(closeDialogueBox());
+
+
+        }
+    }
+
+    IEnumerator closeDialogueBox()
+    {
+        blockiIsClose = true;
         menu.SetTrigger("IsClose");
+        yield return null;
 
     }
+
 
 }
 
