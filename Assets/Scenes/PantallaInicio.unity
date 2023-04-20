@@ -2117,12 +2117,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jump: 1100
+  life: 1
   playerShoots: 3
   enemyModel: {fileID: 0}
   playerAnimator: {fileID: 1140140468}
   transitionAnimator: {fileID: 0}
   damageAnimator: {fileID: 0}
-  Test: {fileID: 860383047}
   playerTrail: {fileID: 1863105097}
   projectilAbsortionRed: {fileID: 1108714754}
   projectilAbsortionGrey: {fileID: 980584538}
@@ -2131,6 +2131,16 @@ MonoBehaviour:
   firePointCursor: {fileID: 130524679}
   informationBoxCollisionObject: {fileID: 0}
   disabledControls: 0
+  enemy: {fileID: 0}
+  rightStageCollision: {fileID: 0}
+  letterE: {fileID: 0}
+  flechaVerde: {fileID: 0}
+  torretasConTag: []
+  menu: {fileID: 0}
+  rotation: {fileID: 0}
+  attack: {fileID: 0}
+  deactivateE: 0
+  deactivateDamageAnimationBool: 0
   rb: {fileID: 1140140463}
   groundCheckCollider: {fileID: 1817381572}
   isGrounded: 0
@@ -8017,7 +8027,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 922d93e8b43c5a740b9a94984c4a937a, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -13474,7 +13484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.30588236}
+  m_Color: {r: 0.007843138, g: 0, b: 1, a: 0.30588236}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
