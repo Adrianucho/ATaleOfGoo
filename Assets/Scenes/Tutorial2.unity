@@ -1920,6 +1920,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1140140462}
     - target: {fileID: 5839574492525907393, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
+      propertyPath: prefabDeathSound
+      value: 
+      objectReference: {fileID: 469868738963542586, guid: cf715e80b87baaf409da8349446a792a, type: 3}
+    - target: {fileID: 5839574492525907393, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
       propertyPath: DeathTurretParticles
       value: 
       objectReference: {fileID: 629417739}
@@ -19288,6 +19292,7 @@ MonoBehaviour:
   player: {fileID: 1140140467}
   playermodel: {fileID: 1140140462}
   morirUnaVez: 0
+  prefabDeathSound: {fileID: 469868738963542586, guid: cf715e80b87baaf409da8349446a792a, type: 3}
 --- !u!212 &1598219589
 SpriteRenderer:
   m_ObjectHideFlags: 0
