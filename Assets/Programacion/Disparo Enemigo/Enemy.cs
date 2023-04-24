@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
 
     public bool morirUnaVez = false;
 
+    public GameObject prefabDeathSound;
 
     IEnumerator enemyShoots()
     {
@@ -61,7 +62,7 @@ public class Enemy : MonoBehaviour
         //Desactivamos el sprite renderer
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        audioMuerteEnemigo.Play();
+        Instantiate(prefabDeathSound, transform.position, transform.rotation);
         DeathTurretParticles.Play();
 
         Die();

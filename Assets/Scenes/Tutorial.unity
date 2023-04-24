@@ -2835,6 +2835,7 @@ MonoBehaviour:
   rotation: {fileID: 546055006}
   attack: {fileID: 546055008}
   deactivateE: 0
+  deactivateDamageAnimationBool: 0
   rb: {fileID: 1140140463}
   groundCheckCollider: {fileID: 1817381572}
   isGrounded: 0
@@ -14893,6 +14894,10 @@ PrefabInstance:
       propertyPath: playermodel
       value: 
       objectReference: {fileID: 1140140462}
+    - target: {fileID: 5839574492525907393, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
+      propertyPath: prefabDeathSound
+      value: 
+      objectReference: {fileID: 469868738963542586, guid: cf715e80b87baaf409da8349446a792a, type: 3}
     - target: {fileID: 5839574492525907393, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
       propertyPath: DeathTurretParticles
       value: 
