@@ -95,7 +95,10 @@ public class Player : MonoBehaviour
     public bool deactivateE = false;
     //Booleana para activar el parry
 
+    //Fix para impedir que la pantalla parpadee varias veces
     public bool deactivateDamageAnimationBool = false;
+
+    public bool healTurrets = false;
     public IEnumerator doAParry()
     {
         if (unableToParry == false)
@@ -133,7 +136,7 @@ public class Player : MonoBehaviour
     public IEnumerator respawn()
     {
         life = 1;
-        enemy.health = 40;
+        healTurrets = true;
         playerShoots = 0;
         disabledControls = true;
         deactivateE = true;

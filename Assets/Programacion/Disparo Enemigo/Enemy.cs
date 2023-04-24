@@ -86,7 +86,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(playerDetected);
 
 
         if (gameObject.CompareTag("Turret"))
@@ -176,7 +175,11 @@ public class Enemy : MonoBehaviour
 
 
 
+        if(player.healTurrets == true)
+        {
 
+            StartCoroutine(recoverHealth());
+        }
 
 
 
@@ -221,7 +224,14 @@ public class Enemy : MonoBehaviour
 
     }
 
-    
+    public IEnumerator recoverHealth()
+    {
+
+        health = 40;
+        yield return new WaitForSeconds(0.5f);
+        player.healTurrets = false;
+        yield return null;
+    }
 
     public void Die() //metodo para que se ejecute la muerte
     {
