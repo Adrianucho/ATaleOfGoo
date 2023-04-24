@@ -261,12 +261,12 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.R))
+        /*if (Input.GetKeyDown(KeyCode.R))
         {
             life = life - 1;
             checkDamageStatus();
 
-        }
+        }*/
 
         /*if (GameObject.FindGameObjectsWithTag("Turret").Length == 0)
         {
