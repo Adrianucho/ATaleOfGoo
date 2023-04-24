@@ -145,6 +145,34 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        if (gameObject.CompareTag("TurretRight"))
+        {
+            //Length of the ray
+            float laserLength = 10f;
+            //Start point of the laser
+            Vector2 startPosition = (Vector2)transform.position - new Vector2(0, (bCol2d.bounds.extents.y + 0.05f));
+            int layerMask = LayerMask.GetMask("Default");
+            //Check if the laser hit something
+            RaycastHit2D hit = Physics2D.Raycast(startPosition, Vector2.right, laserLength, layerMask);
+
+            if (hit.collider.tag == "Player")
+            {
+                if (playerDetected == true && health > 0)
+                {
+
+
+                    StartCoroutine(enemyAttacks());
+
+
+                    StartCoroutine(enemyShoots());
+                    //StartCoroutine(DoFlash());
+                }
+
+
+
+            }
+        }
+
 
 
 

@@ -246,6 +246,8 @@ public class Player : MonoBehaviour
 
         torretasConTag = torretasConTag.Concat(GameObject.FindGameObjectsWithTag("Turret")).ToArray();
         torretasConTag = torretasConTag.Concat(GameObject.FindGameObjectsWithTag("TurretDown")).ToArray();
+        torretasConTag = torretasConTag.Concat(GameObject.FindGameObjectsWithTag("TurretRight")).ToArray();
+
 
 
 
