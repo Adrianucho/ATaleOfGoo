@@ -6,7 +6,7 @@ public class Goo : MonoBehaviour
 {
     public float speed = 20f;
     public Rigidbody2D rb; //referencia del rigid body
-    public int damage = 20; //daño que hace el personaje
+    public int damage = 20; //daÃ±o que hace el personaje
 
     private Camera mainCam;
     private Vector3 mousePos;
