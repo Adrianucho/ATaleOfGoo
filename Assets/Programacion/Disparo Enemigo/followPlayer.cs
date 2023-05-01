@@ -18,6 +18,8 @@ public class followPlayer : MonoBehaviour
     public Vector2 posicionInicial;
 
 
+
+
     private void Start()
     {
         player = playerModel.GetComponent<Player>();
@@ -65,6 +67,7 @@ public class followPlayer : MonoBehaviour
 
 
             }
+        
 
             if (player.disabledControls == true)
             {
