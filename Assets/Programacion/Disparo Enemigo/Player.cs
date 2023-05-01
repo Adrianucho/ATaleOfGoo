@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using UnityEngine.VFX;
 
@@ -99,6 +101,12 @@ public class Player : MonoBehaviour
     public bool deactivateDamageAnimationBool = false;
 
     public bool healTurrets = false;
+
+    public Animator blueTextAnimator;
+    public Animator blueScreenAnimator;
+
+    public bool estoyEscondido = false;
+
     public IEnumerator doAParry()
     {
         if (unableToParry == false)
@@ -180,7 +188,9 @@ public class Player : MonoBehaviour
         enemyScriptReference.timebetween = enemyScriptReference.starttimeb;
         letterE.SetActive(true);
         flechaVerde.SetActive(false);
-        
+        blueScreenAnimator.SetBool("pantallazo", false);
+        blueTextAnimator.SetBool("pantallazoTexto", false);
+
 
 
         /*for (int i = 0; i < torretasConTag.Length; i++)
@@ -257,10 +267,30 @@ public class Player : MonoBehaviour
         attack = rotation.GetComponent<Attack>();
     }
 
+    
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Turret")
+        {
+            estoyEscondido = true;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Turret")
+        {
+            estoyEscondido = false;
+        }
+    }
+
+   
+
     // Update is called once per frame
     void Update()
     {
-
+        
         /*if (Input.GetKeyDown(KeyCode.R))
         {
             life = life - 1;

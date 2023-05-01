@@ -17,6 +17,8 @@ public class followPlayer : MonoBehaviour
 
     public Vector2 posicionInicial;
 
+    public Animator OverloadTextAnimator;
+    public Animator OverloadScreenAnimator;
 
 
 
@@ -69,16 +71,16 @@ public class followPlayer : MonoBehaviour
             }
         
 
-            if (player.disabledControls == true)
-            {
-
-                torretaTecho.transform.position = Vector3.Lerp(torretaTecho.transform.position, posicionInicial, velocidad * Time.deltaTime);
-
-            }
+            
 
         }
 
+        if (player.disabledControls == true)
+        {
 
+            torretaTecho.transform.position = Vector3.Lerp(torretaTecho.transform.position, posicionInicial, velocidad * Time.deltaTime);
+
+        }
 
 
     }

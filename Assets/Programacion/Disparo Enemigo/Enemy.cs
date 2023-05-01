@@ -41,6 +41,9 @@ public class Enemy : MonoBehaviour
 
     public GameObject prefabDeathSound;
 
+    public Animator BlueScreenAnimator;
+    public Animator BlueTextAnimator;
+
     IEnumerator enemyShoots()
     {
         playerDetected = false;
@@ -142,6 +145,25 @@ public class Enemy : MonoBehaviour
 
 
             }
+
+            if(hit.collider.tag == "Turret")
+            {
+
+                
+                if (player.disabledControls == false && player.estoyEscondido == true)
+                {
+
+                    StartCoroutine(enemyShoots());
+                    BlueScreenAnimator.SetBool("pantallazo", true);
+                    BlueTextAnimator.SetBool("pantallazoTexto", true);
+
+
+
+                }
+
+
+            }
+
         }
 
         if (gameObject.CompareTag("TurretRight"))
