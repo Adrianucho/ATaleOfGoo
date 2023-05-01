@@ -70,7 +70,7 @@ Transform:
   - {fileID: 5839574492772937521}
   - {fileID: 5839574493536298631}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5839574492525907392
 SpriteRenderer:
@@ -151,6 +151,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playermodel: {fileID: 0}
   morirUnaVez: 0
+  prefabDeathSound: {fileID: 0}
 --- !u!61 &5839574492525907394
 BoxCollider2D:
   m_ObjectHideFlags: 0
