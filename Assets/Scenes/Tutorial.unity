@@ -766,7 +766,7 @@ VFXRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 25
 --- !u!2083052967 &187982320
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -2576,7 +2576,7 @@ VFXRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 23
 --- !u!2083052967 &980584538
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -2915,7 +2915,7 @@ VFXRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 25
 --- !u!2083052967 &1108714754
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -8923,7 +8923,7 @@ VFXRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 23
 --- !u!2083052967 &1367698472
 VisualEffect:
   m_ObjectHideFlags: 0
