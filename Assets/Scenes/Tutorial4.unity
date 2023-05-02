@@ -2578,6 +2578,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5839574492525907392, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
+      propertyPath: m_SortingOrder
+      value: 217
+      objectReference: {fileID: 0}
     - target: {fileID: 5839574492525907393, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
       propertyPath: arrow
       value: 
@@ -19888,6 +19892,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5839574492525907392, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
+      propertyPath: m_SortingOrder
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 5839574492525907393, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
       propertyPath: arrow
       value: 
@@ -27739,7 +27747,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4420915577204334169, guid: 1848d93bf53aeb141ae3a0f5f27df4e4, type: 3}
       propertyPath: m_Text
-      value: 4 de 4...
+      value: 4 of 4...
       objectReference: {fileID: 0}
     - target: {fileID: 4420915577204334169, guid: 1848d93bf53aeb141ae3a0f5f27df4e4, type: 3}
       propertyPath: m_Color.b

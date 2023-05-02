@@ -2578,6 +2578,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5839574492525907392, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
+      propertyPath: m_SortingOrder
+      value: 104
+      objectReference: {fileID: 0}
     - target: {fileID: 5839574492525907393, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
       propertyPath: arrow
       value: 
@@ -2857,6 +2861,8 @@ MonoBehaviour:
   player: {fileID: 1140140467}
   playerModel: {fileID: 1140140462}
   posicionInicial: {x: 0, y: 0}
+  OverloadTextAnimator: {fileID: 0}
+  OverloadScreenAnimator: {fileID: 0}
 --- !u!1 &876518717
 GameObject:
   m_ObjectHideFlags: 0
@@ -4395,6 +4401,9 @@ MonoBehaviour:
   deactivateE: 0
   deactivateDamageAnimationBool: 0
   healTurrets: 0
+  blueTextAnimator: {fileID: 0}
+  blueScreenAnimator: {fileID: 0}
+  estoyEscondido: 0
   rb: {fileID: 1140140463}
   groundCheckCollider: {fileID: 1817381572}
   isGrounded: 0
@@ -19875,6 +19884,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5839574492525907392, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
+      propertyPath: m_SortingOrder
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 5839574492525907393, guid: b83fe429cbd09ed4db0d6428f8192f97, type: 3}
       propertyPath: arrow
       value: 
@@ -21346,6 +21359,8 @@ MonoBehaviour:
   playermodel: {fileID: 1140140462}
   morirUnaVez: 0
   prefabDeathSound: {fileID: 469868738963542586, guid: cf715e80b87baaf409da8349446a792a, type: 3}
+  BlueScreenAnimator: {fileID: 0}
+  BlueTextAnimator: {fileID: 0}
 --- !u!212 &1598219589
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27470,7 +27485,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4420915577204334169, guid: 1848d93bf53aeb141ae3a0f5f27df4e4, type: 3}
       propertyPath: m_Text
-      value: 3 de 4...
+      value: 3 of 4...
       objectReference: {fileID: 0}
     - target: {fileID: 4420915577204334169, guid: 1848d93bf53aeb141ae3a0f5f27df4e4, type: 3}
       propertyPath: m_Color.b
