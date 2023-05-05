@@ -206,7 +206,8 @@ public class Player : MonoBehaviour
         }
         enemy.morirUnaVez = false;
         enemy.playerDetected = true;
-       
+        healTurrets = false;
+
 
         //Reactivamos la imágenes
         playerTrail.GetComponent<TrailRenderer>().enabled = true;
@@ -290,7 +291,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         /*if (Input.GetKeyDown(KeyCode.R))
         {
             life = life - 1;

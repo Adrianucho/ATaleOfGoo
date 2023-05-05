@@ -82,13 +82,21 @@ public class Enemy : MonoBehaviour
         audioMuerteEnemigo= AudioSources[1];
         audioPredisparo = AudioSources[2];
         audioTorretaDanada = AudioSources[3];
-        
+
+        player = playermodel.GetComponent<Player>();
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (player.healTurrets == true)
+        {
+
+            health = 40;
+        }
 
 
         if (gameObject.CompareTag("Turret"))
@@ -194,15 +202,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
-
-
-
-        if(player.healTurrets == true)
-        {
-
-            StartCoroutine(recoverHealth());
-        }
-
+     
 
 
 
@@ -249,8 +249,8 @@ public class Enemy : MonoBehaviour
     public IEnumerator recoverHealth()
     {
 
-        health = 40;
-        yield return new WaitForSeconds(0.5f);
+        
+        yield return new WaitForSeconds(0.25f);
         player.healTurrets = false;
         yield return null;
     }
