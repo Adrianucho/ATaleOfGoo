@@ -177,7 +177,7 @@ public class Enemy : MonoBehaviour
         if (gameObject.CompareTag("TurretRight"))
         {
             //Length of the ray
-            float laserLength = 10f;
+            float laserLength = 12f;
             //Start point of the laser
             Vector2 startPosition = (Vector2)transform.position - new Vector2(0, (bCol2d.bounds.extents.y + 0.05f));
             int layerMask = LayerMask.GetMask("Default");
