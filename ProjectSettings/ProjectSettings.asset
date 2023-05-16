@@ -15,7 +15,7 @@ PlayerSettings:
   companyName: "A la Monta\xF1a"
   productName: A Tale of Goo
   defaultCursor: {fileID: 2800000, guid: 9d98dabdc78c14643b3321c29297605e, type: 3}
-  cursorHotspot: {x: 0, y: 0}
+  cursorHotspot: {x: 165, y: 165}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
