@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueTrigger : MonoBehaviour //script que triggea la conversación
 {
@@ -13,6 +14,8 @@ public class DialogueTrigger : MonoBehaviour //script que triggea la conversació
 
     public Player playerScript;
     public GameObject playerCharacter;
+
+    public GameObject cajaControls;
 
     void Start()
     {
@@ -32,6 +35,7 @@ public class DialogueTrigger : MonoBehaviour //script que triggea la conversació
                 FindObjectOfType<DialogueManager>().StartDialogue(dialogue); //busca al dialogue manager y hace que empieze la conver
                 menu.SetTrigger("IsOpen");
                 letrae.SetActive(false);
+                cajaControls.SetActive(false);
             }
            
 

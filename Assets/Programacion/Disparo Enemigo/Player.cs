@@ -82,6 +82,7 @@ public class Player : MonoBehaviour
 
     public GameObject letterE;
     public GameObject flechaVerde;
+    public GameObject AzulControles;
    
 
     public GameObject[] torretasConTag = new GameObject[0];
@@ -423,6 +424,7 @@ public class Player : MonoBehaviour
         {
             rightStageCollision.SetActive(false);
             flechaVerde.SetActive(true);
+            AzulControles.SetActive(false);
         }
     }
 

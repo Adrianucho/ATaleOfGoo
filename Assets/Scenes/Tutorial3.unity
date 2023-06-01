@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &27117279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 27117280}
+  m_Layer: 0
+  m_Name: Null
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &27117280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27117279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 607.4997, y: 559.7308, z: -15.822483}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 52
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &29201792
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +518,7 @@ MonoBehaviour:
   letrae: {fileID: 1817974157}
   playerScript: {fileID: 1140140467}
   playerCharacter: {fileID: 1140140462}
+  cajaControls: {fileID: 0}
 --- !u!1 &76313463
 GameObject:
   m_ObjectHideFlags: 0
@@ -4579,6 +4611,7 @@ MonoBehaviour:
   rightStageCollision: {fileID: 895353785}
   letterE: {fileID: 1817974157}
   flechaVerde: {fileID: 2094044044}
+  AzulControles: {fileID: 27117279}
   torretasConTag: []
   menu: {fileID: 1463416229}
   rotation: {fileID: 546055006}

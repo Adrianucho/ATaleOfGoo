@@ -23,6 +23,9 @@ public class DialogueManager : MonoBehaviour
 
     public bool blockiIsClose = false;
 
+    public GameObject LetraE;
+    public GameObject CajaControles;
+
     void Start()
     {
         sentences = new Queue<string>();
@@ -92,6 +95,8 @@ public class DialogueManager : MonoBehaviour
     {
         blockiIsClose = true;
         menu.SetTrigger("IsClose");
+        LetraE.SetActive(true);
+        CajaControles.SetActive(true);
         yield return null;
 
     }
