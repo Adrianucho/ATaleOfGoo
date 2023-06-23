@@ -1810,7 +1810,7 @@ GameObject:
   - component: {fileID: 626423692}
   - component: {fileID: 626423691}
   - component: {fileID: 626423693}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Transicion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1825,7 +1825,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 626423689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 16.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3249,6 +3249,7 @@ MonoBehaviour:
   blueTextAnimator: {fileID: 586641982}
   blueScreenAnimator: {fileID: 101193765}
   estoyEscondido: 0
+  cajaControles: {fileID: 275005960}
   rb: {fileID: 1140140463}
   groundCheckCollider: {fileID: 1817381572}
   isGrounded: 0
@@ -15404,6 +15405,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 275005961}
   - {fileID: 1463416226}
   - {fileID: 626423690}
   - {fileID: 651148839}
@@ -15411,7 +15413,6 @@ RectTransform:
   - {fileID: 101193764}
   - {fileID: 586641981}
   - {fileID: 1506259775}
-  - {fileID: 275005961}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

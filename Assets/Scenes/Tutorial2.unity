@@ -3686,6 +3686,7 @@ MonoBehaviour:
   blueTextAnimator: {fileID: 375584680}
   blueScreenAnimator: {fileID: 1188366183}
   estoyEscondido: 0
+  cajaControles: {fileID: 359264787}
   rb: {fileID: 1140140463}
   groundCheckCollider: {fileID: 1817381572}
   isGrounded: 0

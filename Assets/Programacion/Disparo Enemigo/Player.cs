@@ -108,6 +108,8 @@ public class Player : MonoBehaviour
 
     public bool estoyEscondido = false;
 
+    public GameObject cajaControles;
+
     public IEnumerator doAParry()
     {
         if (unableToParry == false)
@@ -189,6 +191,7 @@ public class Player : MonoBehaviour
         enemyScriptReference.timebetween = enemyScriptReference.starttimeb;
         letterE.SetActive(true);
         flechaVerde.SetActive(false);
+        cajaControles.SetActive(true);
         blueScreenAnimator.SetBool("pantallazo", false);
         blueTextAnimator.SetBool("pantallazoTexto", false);
 
@@ -486,6 +489,7 @@ public class Player : MonoBehaviour
 
                 }
                 letterE.SetActive(false);
+
 
 
 
